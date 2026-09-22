@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 #endif
 
 /// <summary>
 /// Makes the attached GameObject a collectible.
-/// The player enters its trigger and presses the interaction button to collect it.
+/// The player approaches it and presses the interaction button to collect it.
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider))]
@@ -18,11 +20,17 @@ public sealed class CollectibleItem : MonoBehaviour
     [Tooltip("Points awarded when this item is collected.")]
     public int scoreValue = 1;
 
+    [SerializeField, Min(0.1f)]
+    [Tooltip("How close the player's camera must be before the collect prompt appears.")]
+    private float interactionDistance = 2.5f;
+
     public static int TotalScore { get; private set; }
     public static event Action<int> ScoreChanged;
 
-    private bool playerInRange;
+    private bool playerInTrigger;
     private bool collected;
+    private GameObject promptRoot;
+    private Camera playerCamera;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void ResetScore()
@@ -38,11 +46,14 @@ public sealed class CollectibleItem : MonoBehaviour
         Rigidbody body = GetComponent<Rigidbody>();
         body.isKinematic = true;
         body.useGravity = false;
+
+        BuildPrompt();
     }
 
     private void OnValidate()
     {
         scoreValue = Mathf.Max(0, scoreValue);
+        interactionDistance = Mathf.Max(0.1f, interactionDistance);
 
         Collider trigger = GetComponent<Collider>();
         if (trigger != null)
@@ -53,9 +64,30 @@ public sealed class CollectibleItem : MonoBehaviour
 
     private void Update()
     {
+        bool playerInRange = IsPlayerInRange();
+
+        if (promptRoot != null && promptRoot.activeSelf != playerInRange)
+        {
+            promptRoot.SetActive(playerInRange);
+        }
+
         if (playerInRange && InteractionPressedThisFrame())
         {
             Collect();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (promptRoot == null || !promptRoot.activeSelf)
+        {
+            return;
+        }
+
+        Camera camera = GetPlayerCamera();
+        if (camera != null)
+        {
+            promptRoot.transform.rotation = camera.transform.rotation;
         }
     }
 
@@ -63,7 +95,7 @@ public sealed class CollectibleItem : MonoBehaviour
     {
         if (BelongsToPlayer(other))
         {
-            playerInRange = true;
+            playerInTrigger = true;
         }
     }
 
@@ -71,12 +103,12 @@ public sealed class CollectibleItem : MonoBehaviour
     {
         if (BelongsToPlayer(other))
         {
-            playerInRange = false;
+            playerInTrigger = false;
         }
     }
 
     /// <summary>
-    /// Collects this item once. This method can later be connected directly to
+    /// Collects this item once. This method can also be connected directly to
     /// an XR interaction event after the team chooses the VR controller button.
     /// </summary>
     public void Collect()
@@ -90,6 +122,71 @@ public sealed class CollectibleItem : MonoBehaviour
         TotalScore += scoreValue;
         ScoreChanged?.Invoke(TotalScore);
         gameObject.SetActive(false);
+    }
+
+    private bool IsPlayerInRange()
+    {
+        if (playerInTrigger)
+        {
+            return true;
+        }
+
+        Camera camera = GetPlayerCamera();
+        return camera != null &&
+               Vector3.Distance(camera.transform.position, transform.position) <= interactionDistance;
+    }
+
+    private Camera GetPlayerCamera()
+    {
+        if (playerCamera == null || !playerCamera.isActiveAndEnabled)
+        {
+            playerCamera = Camera.main;
+        }
+
+        return playerCamera;
+    }
+
+    private void BuildPrompt()
+    {
+        promptRoot = new GameObject("Collect Prompt", typeof(RectTransform), typeof(Canvas));
+        promptRoot.transform.SetParent(transform, false);
+        promptRoot.transform.localPosition = Vector3.up * 0.75f;
+        promptRoot.transform.localScale = Vector3.one * 0.0025f;
+
+        RectTransform promptRect = (RectTransform)promptRoot.transform;
+        promptRect.sizeDelta = new Vector2(420f, 100f);
+
+        Canvas canvas = promptRoot.GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.WorldSpace;
+        canvas.sortingOrder = 50;
+
+        GameObject background = new GameObject("Background", typeof(RectTransform), typeof(Image));
+        background.transform.SetParent(promptRoot.transform, false);
+        RectTransform backgroundRect = (RectTransform)background.transform;
+        backgroundRect.anchorMin = Vector2.zero;
+        backgroundRect.anchorMax = Vector2.one;
+        backgroundRect.offsetMin = Vector2.zero;
+        backgroundRect.offsetMax = Vector2.zero;
+        background.GetComponent<Image>().color = new Color(0.02f, 0.08f, 0.13f, 0.9f);
+
+        GameObject label = new GameObject("Instruction", typeof(RectTransform), typeof(Text));
+        label.transform.SetParent(background.transform, false);
+        RectTransform labelRect = (RectTransform)label.transform;
+        labelRect.anchorMin = Vector2.zero;
+        labelRect.anchorMax = Vector2.one;
+        labelRect.offsetMin = new Vector2(14f, 8f);
+        labelRect.offsetMax = new Vector2(-14f, -8f);
+
+        Text text = label.GetComponent<Text>();
+        text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        text.text = $"Press E / A / VR Primary to collect  (+{scoreValue})";
+        text.fontSize = 30;
+        text.alignment = TextAnchor.MiddleCenter;
+        text.color = new Color(0.75f, 1f, 1f, 1f);
+        text.horizontalOverflow = HorizontalWrapMode.Wrap;
+        text.verticalOverflow = VerticalWrapMode.Truncate;
+
+        promptRoot.SetActive(false);
     }
 
     private static bool BelongsToPlayer(Collider other)
@@ -114,6 +211,15 @@ public sealed class CollectibleItem : MonoBehaviour
         if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
         {
             return true;
+        }
+
+        foreach (InputDevice device in InputSystem.devices)
+        {
+            ButtonControl primaryButton = device.TryGetChildControl<ButtonControl>("primaryButton");
+            if (primaryButton != null && primaryButton.wasPressedThisFrame)
+            {
+                return true;
+            }
         }
 #endif
 
