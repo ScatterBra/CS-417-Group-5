@@ -6145,6 +6145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1903038986}
+  - component: {fileID: 2000001000}
   m_Layer: 0
   m_Name: Gameplay_Anchors
   m_TagString: Untagged
@@ -6172,6 +6173,33 @@ Transform:
   - {fileID: 2000000002}
   m_Father: {fileID: 1605349581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000001000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903038985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7644338f4a749068e5d2e1af0d2472c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::LabEscapeRoom
+  keySpawns:
+  - {fileID: 880350465}
+  - {fileID: 418408312}
+  - {fileID: 1458879207}
+  lockSlots:
+  - {fileID: 222571566}
+  - {fileID: 1789173187}
+  - {fileID: 592138560}
+  keyModels:
+  - {fileID: 5744863153179321896, guid: ac289c334f1e2554fa2c3f187a354c4c, type: 3}
+  - {fileID: 4160257118675020040, guid: ac4bf23be814be543840c4634b4c7fbc, type: 3}
+  - {fileID: 7045474579982359199, guid: d515447a17eed434594c63e185a4d427, type: 3}
+  doorPanel: {fileID: 675428224}
+  keyLength: 0.28
+  doorOpenHeight: 3
 --- !u!1 &1914227730
 GameObject:
   m_ObjectHideFlags: 0
