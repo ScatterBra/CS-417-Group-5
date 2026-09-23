@@ -20,4 +20,4 @@ This script only updates an existing UI Text; it does not create a Canvas or cho
 3. Drag the child Text into the script's **Score Text** Inspector field.
 4. Set font, size, color and layout directly in the editor. The script displays the current total when enabled and listens to `ScoreChanged` for updates.
 
-The lab is configured as **XR Origin (XR Rig) > Camera Offset > Main Camera > Score Canvas > Score Text**. The Canvas uses **World Space**, is assigned to the headset camera, and follows the player's view. Edit its layout in the Unity editor. Each scene needing a score display should contain its own configured Canvas.
+The lab is configured as **XR Origin (XR Rig) > Camera Offset > Main Camera > Score Canvas > Score Text**. The Canvas uses **Screen Space - Camera**, with the headset camera as its Render Camera. The Text is anchored to the upper-right corner, so it stays there when the Game view size changes. Edit its layout in the Unity editor. Each scene needing a score display should contain its own configured Canvas.

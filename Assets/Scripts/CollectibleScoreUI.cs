@@ -27,6 +27,6 @@ public sealed class CollectibleScoreUI : MonoBehaviour
     private void RefreshScore(int score)
     {
         if (scoreText != null)
-            scoreText.text = $"SCORE  {score}";
+            scoreText.text = $"Score: {score}";
     }
 }
