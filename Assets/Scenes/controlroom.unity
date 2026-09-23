@@ -917,7 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b65227cc46be184cb3f9c677a641084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
-  requiredKeyId: 
+  requiredKeyId: RedCard
   lockKeyInPlace: 1
   stateChanges: []
   onUnlocked:
@@ -2101,7 +2101,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7725151737958474694, guid: 5bbc0ec83dface3418b0ae505a847eb0, type: 3}
       propertyPath: m_Name
-      value: Card_GateRed
+      value: RedCard
       objectReference: {fileID: 0}
     - target: {fileID: 7777231900749397868, guid: 5bbc0ec83dface3418b0ae505a847eb0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4893,7 +4893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b65227cc46be184cb3f9c677a641084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
-  requiredKeyId: 
+  requiredKeyId: Floppy_Red
   lockKeyInPlace: 1
   stateChanges: []
   onUnlocked:
@@ -5061,7 +5061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b65227cc46be184cb3f9c677a641084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
-  requiredKeyId: 
+  requiredKeyId: USBKey_Metal
   lockKeyInPlace: 1
   stateChanges: []
   onUnlocked:
