@@ -115,6 +115,12 @@ public sealed class LockReceptacle : MonoBehaviour, IXRSelectFilter
                 // The Key is home, so it stops advertising that it can be picked up.
                 signifier.Settle();
             }
+
+            KeyOutlineShell outline = acceptedKey.GetComponent<KeyOutlineShell>();
+            if (outline != null)
+            {
+                outline.SetVisible(false);
+            }
         }
 
         if (ghostPreview != null)
