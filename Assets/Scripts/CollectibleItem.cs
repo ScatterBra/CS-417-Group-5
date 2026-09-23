@@ -12,23 +12,23 @@ using UnityEngine.InputSystem.Controls;
 /// The player approaches it and presses the interaction button to collect it.
 /// </summary>
 [DisallowMultipleComponent]
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
 public sealed class CollectibleItem : MonoBehaviour
 {
     [Min(0)]
     [Tooltip("Points awarded when this item is collected.")]
     public int scoreValue = 1;
 
-    [SerializeField, Min(0.1f)]
+    private string progressId;
+
+    [SerializeField, HideInInspector, Min(0.1f)]
     [Tooltip("How close the player's camera must be before the collect prompt appears.")]
     private float interactionDistance = 2.5f;
 
     public static int TotalScore { get; private set; }
     public static event Action<int> ScoreChanged;
 
-    private bool playerInTrigger;
     private bool collected;
+    [SerializeField, HideInInspector, Tooltip("Optional prebuilt prompt Canvas under this item.")]
     private GameObject promptRoot;
     private Camera playerCamera;
 
@@ -40,14 +40,24 @@ public sealed class CollectibleItem : MonoBehaviour
 
     private void Awake()
     {
-        Collider trigger = GetComponent<Collider>();
-        trigger.isTrigger = true;
+        // Cache the authored location before gameplay can move or hide this object.
+        // Sibling indices distinguish copies, including objects with identical names.
+        string itemId = "";
+        for (Transform current = transform; current != null; current = current.parent)
+            itemId = current.name + "[" + current.GetSiblingIndex() + "]/" + itemId;
+        progressId = gameObject.scene.path + "::" + itemId;
+        if (GameProgress.IsItemCollected(progressId))
+        {
+            collected = true;
+            gameObject.SetActive(false);
+            return;
+        }
 
-        Rigidbody body = GetComponent<Rigidbody>();
-        body.isKinematic = true;
-        body.useGravity = false;
-
-        BuildPrompt();
+        if (promptRoot == null) BuildPrompt();
+        Text promptText = promptRoot.GetComponentInChildren<Text>(true);
+        if (promptText != null)
+            promptText.text = $"E / A / VR Primary\nCollect +{scoreValue}";
+        promptRoot.SetActive(false);
     }
 
     private void OnValidate()
@@ -55,11 +65,6 @@ public sealed class CollectibleItem : MonoBehaviour
         scoreValue = Mathf.Max(0, scoreValue);
         interactionDistance = Mathf.Max(0.1f, interactionDistance);
 
-        Collider trigger = GetComponent<Collider>();
-        if (trigger != null)
-        {
-            trigger.isTrigger = true;
-        }
     }
 
     private void Update()
@@ -91,22 +96,6 @@ public sealed class CollectibleItem : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (BelongsToPlayer(other))
-        {
-            playerInTrigger = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (BelongsToPlayer(other))
-        {
-            playerInTrigger = false;
-        }
-    }
-
     /// <summary>
     /// Collects this item once. This method can also be connected directly to
     /// an XR interaction event after the team chooses the VR controller button.
@@ -119,18 +108,14 @@ public sealed class CollectibleItem : MonoBehaviour
         }
 
         collected = true;
+        gameObject.SetActive(false);
+        if (!GameProgress.TryCollectItem(progressId)) return;
         TotalScore += scoreValue;
         ScoreChanged?.Invoke(TotalScore);
-        gameObject.SetActive(false);
     }
 
     private bool IsPlayerInRange()
     {
-        if (playerInTrigger)
-        {
-            return true;
-        }
-
         Camera camera = GetPlayerCamera();
         return camera != null &&
                Vector3.Distance(camera.transform.position, transform.position) <= interactionDistance;
@@ -187,17 +172,6 @@ public sealed class CollectibleItem : MonoBehaviour
         text.verticalOverflow = VerticalWrapMode.Truncate;
 
         promptRoot.SetActive(false);
-    }
-
-    private static bool BelongsToPlayer(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            return true;
-        }
-
-        Camera mainCamera = Camera.main;
-        return mainCamera != null && other.transform.root == mainCamera.transform.root;
     }
 
     private static bool InteractionPressedThisFrame()

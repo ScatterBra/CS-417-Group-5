@@ -11,12 +11,22 @@ public sealed class LabEscapeRoom : MonoBehaviour
     [SerializeField] private TextMesh progressText;
     [SerializeField] private Transform doorPanel;
     [SerializeField, Min(0.1f)] private float doorOpenHeight = 3f;
+    [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField, Tooltip("Unique room ID. Leave blank to use this scene's path.")]
+    private string roomId;
+    private string RoomId => string.IsNullOrWhiteSpace(roomId) ? gameObject.scene.path : roomId.Trim();
 
     private readonly bool[] unlocked = new bool[3];
     private int unlockedCount;
 
     private void Awake()
     {
+        if (sceneLoader != null)
+        {
+            sceneLoader.roomId = RoomId;
+            sceneLoader.requiresPuzzleCompletion = true;
+            sceneLoader.SetUnlocked(false);
+        }
         if (sockets.Length != 3 || indicators.Length != 3 ||
             progressText == null || doorPanel == null)
         {
@@ -39,6 +49,19 @@ public sealed class LabEscapeRoom : MonoBehaviour
         }
 
         UpdateProgress();
+        if (GameProgress.IsRoomCompleted(RoomId))
+        {
+            for (int i = 0; i < unlocked.Length; i++)
+            {
+                unlocked[i] = true;
+                indicators[i].material.color = Color.green;
+            }
+            unlockedCount = unlocked.Length;
+            doorPanel.localPosition += Vector3.up * doorOpenHeight;
+            progressText.text = "ESCAPE OPEN";
+            progressText.color = Color.green;
+            if (sceneLoader != null) sceneLoader.SetUnlocked(true);
+        }
     }
 
     private void OnKeyInserted(int id, SelectEnterEventArgs args)
@@ -52,7 +75,11 @@ public sealed class LabEscapeRoom : MonoBehaviour
         indicators[id].material.color = Color.green;
         StartCoroutine(SecureKey(key, sockets[id].transform));
         UpdateProgress();
-        if (unlockedCount == sockets.Length) StartCoroutine(OpenDoor());
+        if (unlockedCount == sockets.Length)
+        {
+            GameProgress.CompleteRoom(RoomId);
+            StartCoroutine(OpenDoor());
+        }
     }
 
     private void UpdateProgress()
@@ -85,5 +112,6 @@ public sealed class LabEscapeRoom : MonoBehaviour
         doorPanel.localPosition = open;
         progressText.text = "ESCAPE OPEN";
         progressText.color = Color.green;
+        if (sceneLoader != null) sceneLoader.SetUnlocked(true);
     }
 }
