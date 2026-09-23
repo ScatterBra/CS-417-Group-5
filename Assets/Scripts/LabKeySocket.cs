@@ -4,7 +4,8 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 /// <summary>Only accepts its matching access key.</summary>
 public sealed class LabKeySocket : XRSocketInteractor
 {
-    public int RequiredId { get; set; }
+    [UnityEngine.SerializeField] private int requiredId;
+    public int RequiredId { get => requiredId; set => requiredId = value; }
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
