@@ -45,16 +45,19 @@ mean "this one is still yours to move" — the player can tell at a glance what 
 
 1. The room has exactly **one opening**, framed in bright yellow trim — the everyday "this is
    the way out" of a fire door or an emergency exit.
-2. A solid door panel blocks it, and the status panel beside the door reads **"DOOR LOCKED"**
-   in red with **"0 / 3 PUT BACK"** underneath.
-3. That panel carries three red lights captioned **MUG**, **FILES**, **PHONE** — one per Lock.
-   The captions name the objects the player is holding, so the panel tells them both *how many*
-   Locks matter and *which* objects solve them, without naming a location.
-4. Each Lock station also has its own red lamp, visible from across the room. Red-blocks-you /
-   green-lets-you-through is the same convention as a traffic light or a turnstile.
+2. A solid door panel blocks it, and **three red lights sit in a row right above the door**, one
+   per Lock. There is no text. The lights are the whole message: three red means three things
+   still stand between you and the exit.
+3. Each Lock station has its own red lamp too, visible from across the room. When a Lock is
+   solved, its station lamp and its light above the door turn green at the same moment. That
+   ties each light over the door to a place in the room. The row above the door is laid out the
+   way the stations sit around the player: coffee machine on the left wall → left light, phone
+   desk behind → middle light, filing cabinet on the right wall → right light.
+4. Red-blocks-you / green-lets-you-through is the same convention as a traffic light or a
+   turnstile, so no one has to be taught it.
 
-So a player who looks at the door learns: there are three things to put back, and they are the
-mug, the files and the phone.
+So a player who looks at the door learns: three things are keeping it shut, and each one has a
+red light somewhere in the room.
 
 ### Lock signifiers (X2.3)
 
@@ -108,11 +111,11 @@ When a Lock is solved, four things ease at once:
 - the blue ghost fades to zero alpha while growing slightly, then switches itself off;
 - the station's lamp eases from red to green;
 - the bezel on the station eases from red to green emission;
-- the matching light on the exit panel eases red → green **and** swells past its target scale and
+- the matching light above the door eases red → green **and** swells past its target scale and
   settles back, so the change reads from across the room.
 
 When the third Lock is solved, the door panel eases 1.62 m sideways over 1.8 s after a 0.35 s
-beat, the doorway strip eases to green, and the readout changes to "DOOR OPEN — GO HOME".
+beat and the doorway strip eases to green.
 Walking through the doorway eases the "YOU ESCAPED" banner in with the same pop.
 
 ## Where each rubric item lives
@@ -124,14 +127,14 @@ Walking through the doorway eases the "YOU ESCAPED" banner in with the same pop.
 | W3 Locks with accepting affordances | `Lock_Coffee`, `Lock_Files`, `Lock_Phone` — `XRSocketInteractor` + `LockReceptacle`, each accepting one Key. |
 | X1 Escaping the room | `Escape Controller` counts all three `LockReceptacle`s, opens the door, and `Escape_Landing/Exit_Trigger` ends the run when the player walks out. |
 | X2.1 / X2.2 / X2.3 / X2.4 | See above. |
-| U1 Eased state changes | `EasedStateChange` on every ghost, lamp, bezel, exit-panel light, the door panel and the banner. |
+| U1 Eased state changes | `EasedStateChange` on every ghost, lamp, bezel, light above the door, the door panel and the banner. |
 
 ## Scripts
 
 | File | Job |
 |---|---|
 | [LockReceptacle.cs](../Assets/Scripts/Office/LockReceptacle.cs) | A Lock: accepts exactly one Key, solves once, and stops the Key being taken back out. |
-| [EscapeController.cs](../Assets/Scripts/Office/EscapeController.cs) | Counts solved Locks, opens the door, drives the readouts. |
+| [EscapeController.cs](../Assets/Scripts/Office/EscapeController.cs) | Counts solved Locks and opens the door once all of them are solved. |
 | [EasedStateChange.cs](../Assets/Scripts/Office/EasedStateChange.cs) | Reusable eased transition: position, rotation, scale (with pop), colour, emission, light, fade. |
 | [GrabSignifier.cs](../Assets/Scripts/Office/GrabSignifier.cs) | The amber "you can pick this up" pulse. |
 | [EscapeExitTrigger.cs](../Assets/Scripts/Office/EscapeExitTrigger.cs) | Fires the win beat when the player walks out through the open door. |
@@ -141,10 +144,10 @@ Walking through the doorway eases the "YOU ESCAPED" banner in with the same pop.
 The rubric requires the video to show all three Key Props sitting in their Lock colliders before
 the escape triggers. A run that covers everything:
 
-1. Start facing the door — read "DOOR LOCKED", "0 / 3 PUT BACK" and the three red lights.
+1. Start facing the door — show the three red lights above it.
 2. Turn to the desk, show the three amber-glowing Keys, knock one so it tumbles (W2).
 3. Carry the mug to the vending machine, show the blue ghost, release — ghost fades, lamp eases
-   to green, exit panel light 1 pops green, readout reads 1 / 3.
-4. Repeat for the folder and the handset.
-5. Pan across all three Locks with their Keys seated, then to the panel showing 3 / 3.
+   to green, the left light above the door pops green.
+4. Repeat for the handset (middle light) and the folder (right light).
+5. Pan across all three Locks with their Keys seated, then to the door with all three lights green.
 6. Show the door easing open, walk through, land on "YOU ESCAPED".
