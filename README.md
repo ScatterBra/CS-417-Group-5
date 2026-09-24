@@ -12,6 +12,8 @@ Use `Assets/Prefab/PlayerRig.prefab` in each room. It includes Near-Far interact
 
 The script configures `XRGrabInteractable`; it does not add points or outlines. For socket puzzles, include **TriggerGrabbable** in the socket's Interaction Layer Mask and keep your key-matching filter.
 
+`ItemPrompt.cs` is added automatically by the grab/collect scripts. It shows a short prompt for one nearby pointed-at object or held collectible. Use **Prepare Prompt** on the component to create its child Canvas in the editor; existing assigned UI is reused.
+
 ## Handmirror and Magnifying Glass
 
 Drag `handMirror.prefab` or `magnifyingGlass.prefab` from `Assets/Prefab/OpticalTools` into your scene. Both include grab components: hold **Trigger** to pick them up and release to drop.
@@ -24,7 +26,7 @@ This first version shares one camera image between both eyes; check its comfort 
 
 ## Collectibles and score
 
-- **`CollectibleItem.cs`**: Attach it and set **Score Value**. Press **right-hand B** to collect a nearby item, or add `GrabbableItem` to allow grabbing it first. Collection hides the item and adds points. Collected items stay collected when revisiting a room during the same play session; IDs are automatic. **E** is available for keyboard testing.
+- **`CollectibleItem.cs`**: Attach it and set **Score Value**. Press **right-hand B** to collect the item showing the prompt, or add `GrabbableItem` to allow grabbing it first. The prompt displays `B to Collect 10 pts` using the item's score value. Collection hides the item and adds points. Collected items stay collected when revisiting a room during the same play session; IDs are automatic. **E** is available for keyboard testing; look directly at the nearby item.
 - **`CollectibleScoreUI.cs`**: Updates the UI Text assigned to **Score Text**. The shared PlayerRig already includes this UI.
 
 The lab collectibles have white outlines. Adding these scripts does not automatically add an outline.
