@@ -12,16 +12,26 @@ Use `Assets/Prefab/PlayerRig.prefab` in each room. It includes Near-Far interact
 
 The script configures `XRGrabInteractable`; it does not add points or outlines. For socket puzzles, include **TriggerGrabbable** in the socket's Interaction Layer Mask and keep your key-matching filter.
 
+## Handmirror and Magnifying Glass
+
+Drag `handMirror.prefab` or `magnifyingGlass.prefab` from `Assets/Prefab/OpticalTools` into your scene. Both include grab components: hold **Trigger** to pick them up and release to drop.
+
+- **Handmirror**: Face the mirror toward yourself to see a live, left-right-reversed reflection.
+- **Magnifying Glass**: Hold the lens between your eyes and an object to enlarge it. Change **Magnification** on `OpticalProp` (default: **2**).
+- **`OpticalProp.cs`** drives both tools' cameras and display surfaces. Keep the prefab's camera, material, and texture references assigned. Your player camera must be tagged **MainCamera**. View the front face in Play mode; keep the prefab at its original scale.
+
+This first version shares one camera image between both eyes; check its comfort and appearance on your headset.
+
 ## Collectibles and score
 
-- **`CollectibleItem.cs`**: Attach it and set **Score Value**. Press **A / X** to collect a nearby item, or add `GrabbableItem` to allow grabbing it first. Collection hides the item and adds points. Collected items stay collected when revisiting a room during the same play session; IDs are automatic. **E** is available for keyboard testing.
+- **`CollectibleItem.cs`**: Attach it and set **Score Value**. Press **right-hand B** to collect a nearby item, or add `GrabbableItem` to allow grabbing it first. Collection hides the item and adds points. Collected items stay collected when revisiting a room during the same play session; IDs are automatic. **E** is available for keyboard testing.
 - **`CollectibleScoreUI.cs`**: Updates the UI Text assigned to **Score Text**. The shared PlayerRig already includes this UI.
 
 The lab collectibles have white outlines. Adding these scripts does not automatically add an outline.
 
 ## Scene travel
 
-`SceneLoader.cs` lets players approach a door and hold **A / E** for **1.5 seconds** to change scenes. Assign the destination scene and floating prompt UI, and enable the destination in **Build Profiles**. Enable **Requires Puzzle Completion** if travel should depend on solving the room.
+`SceneLoader.cs` lets players approach a door and hold **left-hand Y / keyboard E** for **1.5 seconds** to change scenes. Assign the destination scene and floating prompt UI, and enable the destination in **Build Profiles**. Enable **Requires Puzzle Completion** if travel should depend on solving the room.
 
 ## Game progress
 

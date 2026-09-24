@@ -12,7 +12,7 @@ using UnityEngine.InputSystem.XR;
 
 /// <summary>
 /// Makes the attached GameObject a collectible.
-/// Collect the nearest item, or the item held by the hand pressing its primary button.
+/// Collect the nearest item, or the item held by the hand using the right-hand B button.
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class CollectibleItem : MonoBehaviour
@@ -67,7 +67,7 @@ public sealed class CollectibleItem : MonoBehaviour
         if (promptRoot == null) BuildPrompt();
         promptText = promptRoot.GetComponentInChildren<Text>(true);
         if (promptText != null)
-            promptText.text = $"A / X / E: Collect +{scoreValue}";
+            promptText.text = $"B (Right Hand) / E: Collect +{scoreValue}";
         promptRoot.SetActive(false);
     }
 
@@ -93,8 +93,7 @@ public sealed class CollectibleItem : MonoBehaviour
                         this == FindTarget(InteractorHandedness.Right);
         if (promptText != null)
         {
-            string button = hand == null ? "A / X / E" :
-                hand.handedness == InteractorHandedness.Left ? "X" : "A";
+            string button = "B (Right Hand) / E";
             promptText.text = $"{button}: Collect +{scoreValue}";
             if (hand == null && GetComponent<GrabbableItem>() != null)
                 promptText.text += "\nHold Trigger to grab";
@@ -239,9 +238,8 @@ public sealed class CollectibleItem : MonoBehaviour
         hand = InteractorHandedness.None;
 #if ENABLE_INPUT_SYSTEM
         if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) return true;
-        if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame) return true;
-        if (PrimaryPressed(XRController.rightHand)) { hand = InteractorHandedness.Right; return true; }
-        if (PrimaryPressed(XRController.leftHand)) { hand = InteractorHandedness.Left; return true; }
+        if (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame) return true;
+        if (SecondaryPressed(XRController.rightHand)) return true;
 #endif
 #if ENABLE_LEGACY_INPUT_MANAGER
         return Input.GetKeyDown(KeyCode.E);
@@ -251,9 +249,9 @@ public sealed class CollectibleItem : MonoBehaviour
     }
 
 #if ENABLE_INPUT_SYSTEM
-    private static bool PrimaryPressed(XRController controller)
+    private static bool SecondaryPressed(XRController controller)
     {
-        var button = controller?.TryGetChildControl<UnityEngine.InputSystem.Controls.ButtonControl>("primaryButton");
+        var button = controller?.TryGetChildControl<UnityEngine.InputSystem.Controls.ButtonControl>("secondaryButton");
         return button != null && button.wasPressedThisFrame;
     }
 #endif
