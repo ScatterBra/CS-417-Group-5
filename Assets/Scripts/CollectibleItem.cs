@@ -1,15 +1,18 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.XR;
 #endif
 
 /// <summary>
 /// Makes the attached GameObject a collectible.
-/// The player approaches it and presses the interaction button to collect it.
+/// Collect the nearest item, or the item held by the hand pressing its primary button.
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class CollectibleItem : MonoBehaviour
@@ -19,6 +22,10 @@ public sealed class CollectibleItem : MonoBehaviour
     public int scoreValue = 1;
 
     private string progressId;
+    private static readonly List<CollectibleItem> activeItems = new List<CollectibleItem>();
+    private static int inputFrame = -1;
+    private XRGrabInteractable grab;
+    private Text promptText;
 
     [SerializeField, HideInInspector, Min(0.1f)]
     [Tooltip("How close the player's camera must be before the collect prompt appears.")]
@@ -36,10 +43,14 @@ public sealed class CollectibleItem : MonoBehaviour
     private static void ResetScore()
     {
         TotalScore = 0;
+        activeItems.Clear();
+        inputFrame = -1;
     }
 
     private void Awake()
     {
+        grab = GetComponent<XRGrabInteractable>();
+
         // Cache the authored location before gameplay can move or hide this object.
         // Sibling indices distinguish copies, including objects with identical names.
         string itemId = "";
@@ -54,9 +65,9 @@ public sealed class CollectibleItem : MonoBehaviour
         }
 
         if (promptRoot == null) BuildPrompt();
-        Text promptText = promptRoot.GetComponentInChildren<Text>(true);
+        promptText = promptRoot.GetComponentInChildren<Text>(true);
         if (promptText != null)
-            promptText.text = $"E / A / VR Primary\nCollect +{scoreValue}";
+            promptText.text = $"A / X / E: Collect +{scoreValue}";
         promptRoot.SetActive(false);
     }
 
@@ -67,19 +78,59 @@ public sealed class CollectibleItem : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        if (!activeItems.Contains(this)) activeItems.Add(this);
+    }
+
+    private void OnDisable() => activeItems.Remove(this);
+
     private void Update()
     {
-        bool playerInRange = IsPlayerInRange();
-
-        if (promptRoot != null && promptRoot.activeSelf != playerInRange)
+        XRBaseInputInteractor hand = HoldingHand();
+        bool isTarget = this == FindTarget(InteractorHandedness.None) ||
+                        this == FindTarget(InteractorHandedness.Left) ||
+                        this == FindTarget(InteractorHandedness.Right);
+        if (promptText != null)
         {
-            promptRoot.SetActive(playerInRange);
+            string button = hand == null ? "A / X / E" :
+                hand.handedness == InteractorHandedness.Left ? "X" : "A";
+            promptText.text = $"{button}: Collect +{scoreValue}";
+            if (hand == null && GetComponent<GrabbableItem>() != null)
+                promptText.text += "\nHold Trigger to grab";
         }
+        if (promptRoot != null) promptRoot.SetActive(isTarget);
 
-        if (playerInRange && InteractionPressedThisFrame())
+        // All items share this input pass: one press can never collect a whole cluster.
+        if (inputFrame == Time.frameCount) return;
+        inputFrame = Time.frameCount;
+        if (TryReadCollectButton(out InteractorHandedness pressedHand))
+            FindTarget(pressedHand)?.Collect();
+    }
+
+    private static CollectibleItem FindTarget(InteractorHandedness hand)
+    {
+        CollectibleItem nearest = null;
+        float nearestDistance = float.PositiveInfinity;
+        Camera camera = Camera.main;
+        foreach (CollectibleItem item in activeItems)
         {
-            Collect();
+            if (item == null || item.collected || !item.isActiveAndEnabled) continue;
+            XRBaseInputInteractor holder = item.HoldingHand();
+            if (holder != null)
+            {
+                if (hand == InteractorHandedness.None || holder.handedness == hand) return item;
+                continue; // The other hand's held item is not a proximity target.
+            }
+            if (camera == null) continue;
+            float distance = Vector3.Distance(camera.transform.position, item.transform.position);
+            if (distance <= item.interactionDistance && distance < nearestDistance)
+            {
+                nearest = item;
+                nearestDistance = distance;
+            }
         }
+        return nearest;
     }
 
     private void LateUpdate()
@@ -97,12 +148,11 @@ public sealed class CollectibleItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Collects this item once. This method can also be connected directly to
-    /// an XR interaction event after the team chooses the VR controller button.
+    /// Collects this item once while nearby or held; also usable by interaction events.
     /// </summary>
     public void Collect()
     {
-        if (collected)
+        if (collected || (HoldingHand() == null && !IsPlayerInRange()))
         {
             return;
         }
@@ -112,6 +162,16 @@ public sealed class CollectibleItem : MonoBehaviour
         if (!GameProgress.TryCollectItem(progressId)) return;
         TotalScore += scoreValue;
         ScoreChanged?.Invoke(TotalScore);
+    }
+
+    private XRBaseInputInteractor HoldingHand()
+    {
+        if (grab == null) grab = GetComponent<XRGrabInteractable>();
+        if (grab == null) return null;
+        foreach (var interactor in grab.interactorsSelecting)
+            if (interactor is XRBaseInputInteractor hand &&
+                hand.handedness != InteractorHandedness.None) return hand;
+        return null;
     }
 
     private bool IsPlayerInRange()
@@ -164,7 +224,7 @@ public sealed class CollectibleItem : MonoBehaviour
 
         Text text = label.GetComponent<Text>();
         text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        text.text = $"Press E / A / VR Primary to collect  (+{scoreValue})";
+        text.text = "Hold Trigger to grab";
         text.fontSize = 30;
         text.alignment = TextAnchor.MiddleCenter;
         text.color = new Color(0.75f, 1f, 1f, 1f);
@@ -174,33 +234,27 @@ public sealed class CollectibleItem : MonoBehaviour
         promptRoot.SetActive(false);
     }
 
-    private static bool InteractionPressedThisFrame()
+    private static bool TryReadCollectButton(out InteractorHandedness hand)
     {
+        hand = InteractorHandedness.None;
 #if ENABLE_INPUT_SYSTEM
-        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            return true;
-        }
-
-        if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
-        {
-            return true;
-        }
-
-        foreach (InputDevice device in InputSystem.devices)
-        {
-            ButtonControl primaryButton = device.TryGetChildControl<ButtonControl>("primaryButton");
-            if (primaryButton != null && primaryButton.wasPressedThisFrame)
-            {
-                return true;
-            }
-        }
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) return true;
+        if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame) return true;
+        if (PrimaryPressed(XRController.rightHand)) { hand = InteractorHandedness.Right; return true; }
+        if (PrimaryPressed(XRController.leftHand)) { hand = InteractorHandedness.Left; return true; }
 #endif
-
 #if ENABLE_LEGACY_INPUT_MANAGER
         return Input.GetKeyDown(KeyCode.E);
 #else
         return false;
 #endif
     }
+
+#if ENABLE_INPUT_SYSTEM
+    private static bool PrimaryPressed(XRController controller)
+    {
+        var button = controller?.TryGetChildControl<UnityEngine.InputSystem.Controls.ButtonControl>("primaryButton");
+        return button != null && button.wasPressedThisFrame;
+    }
+#endif
 }
