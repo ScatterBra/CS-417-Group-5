@@ -18,13 +18,14 @@ public sealed class SceneLoader : MonoBehaviour
     public Transform interactionPoint;
     public GameObject promptRoot;
     public Text promptText;
+    [SerializeField] private bool showLockedPrompt = true;
     [Min(0.1f)] public float interactionDistance = 2f;
     [Min(0.1f)] public float holdDuration = 1.5f;
     public Key keyboardKey = Key.E;
-    public XRNode controllerHand = XRNode.RightHand;
+    public XRNode controllerHand = XRNode.LeftHand;
     public enum ControllerButton { Primary, Secondary, Grip, Trigger }
-    public ControllerButton controllerButton = ControllerButton.Primary;
-    public string buttonLabel = "Right primary (Quest A) / E";
+    public ControllerButton controllerButton = ControllerButton.Secondary;
+    public string buttonLabel = "Y (Left Hand) / E";
 
     private float heldTime;
     private bool isLoading;
@@ -38,7 +39,7 @@ public sealed class SceneLoader : MonoBehaviour
         Camera camera = Camera.main;
         Transform point = interactionPoint != null ? interactionPoint : transform;
         bool nearby = camera != null && Vector3.Distance(camera.transform.position, point.position) <= interactionDistance;
-        if (promptRoot != null) promptRoot.SetActive(nearby);
+        if (promptRoot != null) promptRoot.SetActive(nearby && (CanTravel || showLockedPrompt));
         bool held = IsHeld();
         if (!held) { waitForRelease = false; loadError = null; }
         if (!nearby || !CanTravel || !held || isLoading || waitForRelease) heldTime = 0f;
