@@ -37,6 +37,7 @@ public class FlashlightPower : MonoBehaviour
     /// Inspector to how many seconds of power this battery gives (e.g. 30).
     public void PowerOn(float duration)
     {
+        Debug.Log($"[FlashlightPower] {name}: PowerOn({duration}) called.", this);
         if (routine != null) StopCoroutine(routine);
         routine = StartCoroutine(PowerRoutine(duration));
     }
@@ -61,8 +62,12 @@ public class FlashlightPower : MonoBehaviour
     void SetPowered(bool on)
     {
         IsPowered = on;
+
         if (flashlightLight) flashlightLight.enabled = on;
+        else Debug.LogWarning($"[FlashlightPower] {name}: Flashlight Light is not assigned.", this);
+
         if (blacklight) blacklight.enabled = on;   // disabling stops its Update loop entirely
+        else Debug.LogWarning($"[FlashlightPower] {name}: Blacklight is not assigned.", this);
 
         if (bulbRenderer)
         {
