@@ -59,6 +59,9 @@ public sealed class SequencePuzzle : MonoBehaviour
     [Min(0.05f)]
     public float popInSeconds = 0.6f;
 
+    [Tooltip("Played as the released Key appears. Put it on the Key so the sound comes from where it pops in.")]
+    public AudioSource releaseSound;
+
     public EasedStateChange[] solvedStateChanges = Array.Empty<EasedStateChange>();
 
     public UnityEvent onSolved = new UnityEvent();
@@ -180,6 +183,11 @@ public sealed class SequencePuzzle : MonoBehaviour
             if (popInReleasedKey && isActiveAndEnabled)
             {
                 StartCoroutine(PopIn(releasedKey.transform));
+            }
+
+            if (releaseSound != null)
+            {
+                releaseSound.Play();
             }
         }
 
