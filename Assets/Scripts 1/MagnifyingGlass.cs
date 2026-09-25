@@ -11,6 +11,7 @@ using UnityEngine;
 public class MagnifyingGlass : MonoBehaviour
 {
     public Camera lensCamera;
+    public Transform lensDisplay;   // the Quad/circle showing the Render Texture
     [Tooltip("Lower = more zoomed in. A normal camera is ~60. Try 15-25 for a strong magnify effect.")]
     [Range(1f, 60f)] public float zoomFOV = 20f;
     public bool onlyRenderWhileHeld = true;
@@ -18,13 +19,19 @@ public class MagnifyingGlass : MonoBehaviour
     void Awake()
     {
         if (lensCamera) lensCamera.fieldOfView = zoomFOV;
-        if (lensCamera && onlyRenderWhileHeld) lensCamera.enabled = false;
+        SetActive(!onlyRenderWhileHeld);   // hidden until grabbed, unless the flag is off
 
         var grab = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (grab != null && onlyRenderWhileHeld)
         {
-            grab.selectEntered.AddListener(_ => { if (lensCamera) lensCamera.enabled = true; });
-            grab.selectExited.AddListener(_ => { if (lensCamera) lensCamera.enabled = false; });
+            grab.selectEntered.AddListener(_ => SetActive(true));
+            grab.selectExited.AddListener(_ => SetActive(false));
         }
+    }
+
+    void SetActive(bool on)
+    {
+        if (lensCamera) lensCamera.enabled = on;
+        if (lensDisplay) lensDisplay.gameObject.SetActive(on);
     }
 }
