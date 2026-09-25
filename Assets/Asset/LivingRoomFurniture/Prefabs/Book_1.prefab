@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3382026890778952644}
   - component: {fileID: 2634275255033300746}
   - component: {fileID: 4874563966350620519}
+  - component: {fileID: 6164082214065929095}
   m_Layer: 0
   m_Name: Book_1
   m_TagString: Untagged
@@ -29,10 +30,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7484295502688504514}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.4999998, y: 1.5, z: 1.4999998}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -271,3 +272,21 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &6164082214065929095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7484295502688504514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  meshRenderer: {fileID: 8997474534380727063}
+  highlightMaterialTemplate: {fileID: 2100000, guid: a6112a2f15f4b61449cc8a818fa179b8, type: 2}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.05
+  maxFilterStrength: 0.33

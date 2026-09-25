@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.22283673
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.024754286
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.1345842
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -104,7 +104,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7606265050909733530}
   serializedVersion: 5
-  m_Mass: 2
+  m_Mass: 3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -122,7 +122,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3129104118101102000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +268,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
   meshRenderer: {fileID: 8254567824544944975}
   highlightMaterialTemplate: {fileID: 2100000, guid: a6112a2f15f4b61449cc8a818fa179b8, type: 2}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.05
+  maxFilterStrength: 0.33
 --- !u!23 &8254567824544944975 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 492f6edfbfaf9244b93eb43beb425a1b, type: 3}

@@ -1,0 +1,5 @@
+C:/Users/hjzheng/MP1b/CS-417-Group-5/.utmp/RelWithDebInfo/3l696s3v/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/hjzheng/MP1b/CS-417-Group-5/.utmp/RelWithDebInfo/3l696s3v/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/hjzheng/MP1b/CS-417-Group-5/.utmp/RelWithDebInfo/3l696s3v/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/hjzheng/MP1b/CS-417-Group-5/.utmp/RelWithDebInfo/3l696s3v/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/hjzheng/MP1b/CS-417-Group-5/.utmp/RelWithDebInfo/3l696s3v/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

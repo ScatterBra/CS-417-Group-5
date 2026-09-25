@@ -1,67 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &494581160880091054
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 258862142519641443}
-  m_Layer: 0
-  m_Name: GrabPoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &258862142519641443
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494581160880091054}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.5056074, y: 0.60183823, z: 0.3712614, w: -0.49428418}
-  m_LocalPosition: {x: 0.017480565, y: 0.010593983, z: -0.043469213}
-  m_LocalScale: {x: 0.79999995, y: 0.8, z: 0.8}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5659754357945600567}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4753905691759668327
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7007436888306309881}
-  m_Layer: 0
-  m_Name: GrabPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7007436888306309881
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4753905691759668327}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.39095458, y: 0.47967446, z: 0.5195776, w: -0.5891571}
-  m_LocalPosition: {x: 0.015124512, y: 0.00040847957, z: 0.037012234}
-  m_LocalScale: {x: 0.79999995, y: 0.8, z: 0.8}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5659754357945600567}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5026206534487593101
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +14,7 @@ GameObject:
   - component: {fileID: 2996846729978834665}
   - component: {fileID: 6761123137179186796}
   - component: {fileID: 254653402019362011}
+  - component: {fileID: 563737959500478554}
   m_Layer: 0
   m_Name: Book_3
   m_TagString: Untagged
@@ -91,13 +30,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5026206534487593101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7007436888306309881}
-  - {fileID: 258862142519641443}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8729285662015882642
@@ -279,8 +216,8 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
-  m_AttachTransform: {fileID: 7007436888306309881}
-  m_SecondaryAttachTransform: {fileID: 258862142519641443}
+  m_AttachTransform: {fileID: 0}
+  m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
@@ -335,3 +272,21 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &563737959500478554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5026206534487593101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  meshRenderer: {fileID: 6827545299780563288}
+  highlightMaterialTemplate: {fileID: 2100000, guid: a6112a2f15f4b61449cc8a818fa179b8, type: 2}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.05
+  maxFilterStrength: 0.33
