@@ -4,9 +4,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 /// <summary>
-/// One pressable key of a <see cref="SequencePuzzle"/>. Poke it with a finger, touch it and
-/// pull the trigger, or - for a player small enough to walk on the keyboard - step on it.
-/// It reports its label and flashes green (right) or red (wrong).
+/// One pressable key of a <see cref="SequencePuzzle"/>. Point the controller at it (or touch it)
+/// and pull the trigger. The key lights up faintly while it is aimed at, then flashes green
+/// (right) or red (wrong) when pressed.
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(XRSimpleInteractable))]
@@ -20,11 +20,17 @@ public sealed class PuzzleKeyButton : MonoBehaviour
     public Color acceptedColor = new Color(0.3f, 1f, 0.45f, 0.7f);
     public Color wrongColor = new Color(1f, 0.25f, 0.2f, 0.7f);
 
+    [Tooltip("Flash for a press that is taken but not judged yet (code-lock puzzles, clear keys).")]
+    public Color enteredColor = new Color(1f, 0.85f, 0.3f, 0.7f);
+
+    [Tooltip("Shown while a controller is aimed at the key, so the player knows which key the trigger will press.")]
+    public Color hoverColor = new Color(1f, 1f, 1f, 0.35f);
+
     [Min(0.05f)]
     public float flashSeconds = 0.45f;
 
     [Tooltip("Stepping onto the key presses it, like a floor button.")]
-    public bool stepToPress = true;
+    public bool stepToPress;
 
     private XRSimpleInteractable interactable;
     private BoxCollider keyCollider;
@@ -33,6 +39,7 @@ public sealed class PuzzleKeyButton : MonoBehaviour
     private Material highlightMaterial;
     private Color flashColor;
     private float flashTime = -1f;
+    private int hoverCount;
 
     private void Awake()
     {
@@ -48,11 +55,16 @@ public sealed class PuzzleKeyButton : MonoBehaviour
     private void OnEnable()
     {
         interactable.selectEntered.AddListener(OnSelected);
+        interactable.hoverEntered.AddListener(OnHoverEntered);
+        interactable.hoverExited.AddListener(OnHoverExited);
     }
 
     private void OnDisable()
     {
         interactable.selectEntered.RemoveListener(OnSelected);
+        interactable.hoverEntered.RemoveListener(OnHoverEntered);
+        interactable.hoverExited.RemoveListener(OnHoverExited);
+        hoverCount = 0;
     }
 
     private void OnDestroy()
@@ -66,6 +78,16 @@ public sealed class PuzzleKeyButton : MonoBehaviour
     private void OnSelected(SelectEnterEventArgs args)
     {
         Press();
+    }
+
+    private void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        hoverCount++;
+    }
+
+    private void OnHoverExited(HoverExitEventArgs args)
+    {
+        hoverCount = Mathf.Max(0, hoverCount - 1);
     }
 
     /// <summary>Press this key. Also callable from a UnityEvent while testing.</summary>
@@ -82,7 +104,8 @@ public sealed class PuzzleKeyButton : MonoBehaviour
             return;
         }
 
-        flashColor = result == SequencePuzzle.Result.Wrong ? wrongColor : acceptedColor;
+        flashColor = result == SequencePuzzle.Result.Wrong ? wrongColor :
+            result == SequencePuzzle.Result.Entered ? enteredColor : acceptedColor;
         flashTime = Time.time;
     }
 
@@ -93,16 +116,23 @@ public sealed class PuzzleKeyButton : MonoBehaviour
             CheckStep();
         }
 
-        if (highlightMaterial == null || flashTime < 0f)
+        if (highlightMaterial == null)
         {
             return;
         }
 
-        float t = (Time.time - flashTime) / flashSeconds;
+        float t = flashTime < 0f ? 1f : (Time.time - flashTime) / flashSeconds;
         if (t >= 1f)
         {
-            highlight.enabled = false;
+            // No flash running: show the faint hover tint while a controller is aimed here.
             flashTime = -1f;
+            bool hovered = hoverCount > 0;
+            if (hovered)
+            {
+                highlightMaterial.SetColor("_BaseColor", hoverColor);
+            }
+
+            highlight.enabled = hovered;
             return;
         }
 

@@ -4,6 +4,8 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.Interactors.Casters;
+using UnityEngine.XR.Interaction.Toolkit.Interactors.Visuals;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Gravity;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Jump;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
@@ -46,8 +48,14 @@ public sealed class ShrinkZone : MonoBehaviour
     public float smallJumpBoost = 2f;
 
     [Header("Keep the furniture out of reach while small")]
-    [Tooltip("No far-ray grabbing: a small player could otherwise pull keys off a desk from the floor.")]
-    public bool disableFarGrab = true;
+    [Min(0.05f)]
+    [Tooltip("How far the grab ray reaches while small, in world metres (the stock ray is 10 m). " +
+             "0.4 m feels like 4 m to a 1/10 player: long enough to grab things around them on a " +
+             "desk, too short to pull anything off a desk top from the floor (about 0.75 m up).")]
+    public float smallFarGrabReach = 0.4f;
+
+    [Tooltip("Switch the grab ray off entirely while small, so the hand has to touch what it grabs.")]
+    public bool disableFarGrab;
 
     [Tooltip("Jumping stays on but shrinks with the player (see Small Jump Boost), so it never " +
              "reaches a desk. Tick this to switch jumping off entirely while small.")]
@@ -61,6 +69,9 @@ public sealed class ShrinkZone : MonoBehaviour
 
     /// <summary>True from the moment the player starts shrinking until they are back to full size.</summary>
     public bool isSmall { get; private set; }
+
+    /// <summary>Set by <see cref="GrowBackForGood"/>: the doorway no longer shrinks anyone.</summary>
+    public bool stayFullSize { get; private set; }
 
     private BoxCollider doorway;
     private XROrigin origin;
@@ -94,7 +105,7 @@ public sealed class ShrinkZone : MonoBehaviour
         }
 
         // Starting inside the small room (e.g. while testing) means starting small.
-        if (SideOf(PlayerFeet()) > 0)
+        if (SideOf(PlayerFeet()) > 0 && !stayFullSize)
         {
             Shrink(true);
         }
@@ -108,7 +119,7 @@ public sealed class ShrinkZone : MonoBehaviour
         }
 
         int side = SideOf(PlayerFeet());
-        if (side > 0 && !isSmall)
+        if (side > 0 && !isSmall && !stayFullSize)
         {
             Shrink(false);
         }
@@ -127,13 +138,15 @@ public sealed class ShrinkZone : MonoBehaviour
             transition = null;
         }
 
-        if (snapshot != null)
+        // When the scene is unloading the rig may already be gone; nothing left to restore then.
+        if (snapshot != null && origin != null)
         {
             ApplyFactor(1f);
             snapshot.RestoreToggles();
-            snapshot = null;
-            currentFactor = 1f;
         }
+
+        snapshot = null;
+        currentFactor = 1f;
 
         isSmall = false;
     }
@@ -166,6 +179,16 @@ public sealed class ShrinkZone : MonoBehaviour
 
         isSmall = false;
         StartTransition(1f, instant, onRestored);
+    }
+
+    /// <summary>
+    /// Grow the player back where they stand, even inside the small room, and never shrink them
+    /// again. They end up with exactly their original settings, as with any other restore.
+    /// </summary>
+    public void GrowBackForGood()
+    {
+        stayFullSize = true;
+        Restore(false);
     }
 
     private void StartTransition(float target, bool instant, UnityEvent done)
@@ -231,7 +254,8 @@ public sealed class ShrinkZone : MonoBehaviour
         float smallness = smallScale < 1f ? Mathf.Clamp01(Mathf.Log(factor) / Mathf.Log(smallScale)) : 0f;
         snapshot.ApplyScale(factor,
             Mathf.Lerp(1f, smallSpeedBoost, smallness),
-            Mathf.Lerp(1f, smallJumpBoost, smallness));
+            Mathf.Lerp(1f, smallJumpBoost, smallness),
+            smallness, smallFarGrabReach);
         Vector3 headAfter = playerCamera != null ? playerCamera.transform.position : origin.transform.position;
         origin.transform.position += new Vector3(headBefore.x - headAfter.x, 0f, headBefore.z - headAfter.z);
 
@@ -305,6 +329,11 @@ public sealed class ShrinkZone : MonoBehaviour
             new List<(XRPokeInteractor, float, float, float, float)>();
         private readonly List<(Canvas canvas, float planeDistance)> headCanvases = new List<(Canvas, float)>();
 
+        private readonly List<(CurveInteractionCaster caster, float distance)> farRays = new List<(CurveInteractionCaster, float)>();
+        private readonly List<(CurveVisualController visual, float maxDistance, float restingLength)> rayVisuals =
+            new List<(CurveVisualController, float, float)>();
+        private readonly List<(LineRenderer line, float width)> rayLines = new List<(LineRenderer, float)>();
+
         private readonly List<(NearFarInteractor interactor, bool farCasting)> farGrabbers = new List<(NearFarInteractor, bool)>();
         private readonly List<(Behaviour behaviour, bool enabled)> toggled = new List<(Behaviour, bool)>();
 
@@ -358,18 +387,42 @@ public sealed class ShrinkZone : MonoBehaviour
             foreach (NearFarInteractor interactor in origin.GetComponentsInChildren<NearFarInteractor>(true))
             {
                 farGrabbers.Add((interactor, interactor.enableFarCasting));
+                if (interactor.farInteractionCaster is CurveInteractionCaster caster)
+                {
+                    farRays.Add((caster, caster.castDistance));
+                }
+            }
+
+            foreach (CurveVisualController visual in origin.GetComponentsInChildren<CurveVisualController>(true))
+            {
+                rayVisuals.Add((visual, visual.maxVisualCurveDistance, visual.restingVisualLineLength));
+                LineRenderer line = visual.GetComponent<LineRenderer>();
+                if (line != null)
+                {
+                    rayLines.Add((line, line.widthMultiplier));
+                }
             }
         }
 
-        public void ApplyScale(float factor, float speedMultiplier, float jumpMultiplier)
+        /// <param name="smallness">0 at full size, 1 fully small.</param>
+        /// <param name="farReach">Grab ray length in world metres when fully small.</param>
+        public void ApplyScale(float factor, float speedMultiplier, float jumpMultiplier, float smallness, float farReach)
         {
             originTransform.localScale = originScale * factor;
 
             if (body != null)
             {
                 body.stepOffset = stepOffset * factor;
-                body.skinWidth = skinWidth * factor;
                 body.minMoveDistance = minMoveDistance * factor;
+
+                // XRI keeps the capsule centre at height / 2 + skin width, but only recomputes it
+                // when the body moves. Keep that true now, so a player who stands still while
+                // growing back ends up with exactly the centre XRI would give them.
+                float previousSkin = body.skinWidth;
+                body.skinWidth = skinWidth * factor;
+                Vector3 centre = body.center;
+                centre.y += body.skinWidth - previousSkin;
+                body.center = centre;
             }
 
             if (camera != null)
@@ -405,6 +458,25 @@ public sealed class ShrinkZone : MonoBehaviour
                 poke.pokeWidth = width * factor;
                 poke.pokeSelectWidth = selectWidth * factor;
                 poke.pokeHoverRadius = hoverRadius * factor;
+            }
+
+            // XRI does not scale the grab ray. Left at 10 m it would reach every desk top from
+            // the floor, so shorten it (in log space, like the shrink) to a room-sized reach.
+            foreach (var (caster, distance) in farRays)
+            {
+                caster.castDistance = Mathf.Exp(Mathf.Lerp(Mathf.Log(distance), Mathf.Log(Mathf.Min(farReach, distance)), smallness));
+            }
+
+            // The ray's line is drawn in world units too: keep it the same thickness to the player.
+            foreach (var (visual, maxDistance, restingLength) in rayVisuals)
+            {
+                visual.maxVisualCurveDistance = Mathf.Exp(Mathf.Lerp(Mathf.Log(maxDistance), Mathf.Log(Mathf.Min(farReach, maxDistance)), smallness));
+                visual.restingVisualLineLength = restingLength * factor;
+            }
+
+            foreach (var (line, width) in rayLines)
+            {
+                line.widthMultiplier = width * factor;
             }
 
             // The score HUD floats a fixed distance in front of the eyes; bring it in

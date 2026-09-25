@@ -13,6 +13,18 @@ public sealed class EscapeController : MonoBehaviour
     [Tooltip("Every Lock that must be solved before the door opens.")]
     public LockReceptacle[] locks = Array.Empty<LockReceptacle>();
 
+    [Tooltip("Open the door as soon as every Lock is solved. Off = the door waits for UnlockNow(), " +
+             "e.g. from the end of another room.")]
+    public bool unlockWhenLocksSolved = true;
+
+    [Tooltip("Played the moment every Lock is solved, whether or not the door opens then.")]
+    public EasedStateChange[] locksSolvedStateChanges = Array.Empty<EasedStateChange>();
+
+    public UnityEvent onLocksSolved = new UnityEvent();
+
+    /// <summary>True once every Lock has been solved.</summary>
+    public bool allLocksSolved { get; private set; }
+
     [Header("Exit")]
     [Tooltip("The eased slide that opens the door.")]
     public EasedStateChange doorOpens;
@@ -26,6 +38,8 @@ public sealed class EscapeController : MonoBehaviour
     public Text escapedText;
 
     [Header("Copy")]
+    [Tooltip("Progress readout. {0} = solved, {1} = total.")]
+    public string progressFormat = "{0} / {1} PUT BACK";
     public string lockedMessage = "DOOR LOCKED";
     public string unlockedMessage = "DOOR OPEN - GO HOME";
     public string escapedMessage = "YOU ESCAPED";
@@ -76,7 +90,35 @@ public sealed class EscapeController : MonoBehaviour
 
         Refresh();
 
-        if (!isUnlocked && solvedCount >= locks.Length)
+        if (solvedCount < locks.Length)
+        {
+            return;
+        }
+
+        if (!allLocksSolved)
+        {
+            allLocksSolved = true;
+            foreach (EasedStateChange change in locksSolvedStateChanges)
+            {
+                if (change != null)
+                {
+                    change.Play();
+                }
+            }
+
+            onLocksSolved.Invoke();
+        }
+
+        if (unlockWhenLocksSolved && !isUnlocked)
+        {
+            Unlock();
+        }
+    }
+
+    /// <summary>Open the door now, whatever the Locks say. Also callable from a UnityEvent.</summary>
+    public void UnlockNow()
+    {
+        if (!isUnlocked)
         {
             Unlock();
         }
@@ -97,7 +139,7 @@ public sealed class EscapeController : MonoBehaviour
 
         if (progressText != null)
         {
-            progressText.text = string.Format("{0} / {1} PUT BACK", solvedCount, locks.Length);
+            progressText.text = string.Format(progressFormat, solvedCount, locks.Length);
         }
 
         if (doorStatusText != null && !isUnlocked)
