@@ -702,7 +702,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: a5520f57ce3c0d441875954a5759cc64, type: 3}
+  m_Resource: {fileID: 8300000, guid: e50f51d0e12a8bf49b98db6101b17745, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -712,7 +712,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.5
+  MinDistance: 1
   MaxDistance: 3
   Pan2D: 0
   rolloffMode: 0
@@ -10022,8 +10022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba34c6d4000094e4c9ccb5eeac7f82cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagnifyingGlass
-  lensCamera: {fileID: 1243681272}
-  lensDisplay: {fileID: 253696957}
+  lensCamera: {fileID: 0}
+  lensDisplay: {fileID: 0}
   zoomFOV: 20
   onlyRenderWhileHeld: 1
 --- !u!114 &1013290832
@@ -10237,7 +10237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagnifyingGlass
   lensCamera: {fileID: 1243681272}
   lensDisplay: {fileID: 253696957}
-  zoomFOV: 20
+  zoomFOV: 15.2
   onlyRenderWhileHeld: 1
 --- !u!1 &1022987585 stripped
 GameObject:
@@ -10432,54 +10432,6 @@ MonoBehaviour:
   onWrongKey:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1063982459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063982453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor
-  m_InteractionManager: {fileID: 0}
-  m_InteractionLayers:
-    m_Bits: 4294967295
-  m_Handedness: 0
-  m_AttachTransform: {fileID: 0}
-  m_KeepSelectedTargetValid: 1
-  m_DisableVisualsWhenBlockedInGroup: 1
-  m_StartingSelectedInteractable: {fileID: 0}
-  m_StartingTargetFilter: {fileID: 0}
-  m_AutoFindParentInteractableInHierarchy: 0
-  m_ParentInteractableObject: {fileID: 0}
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_ShowInteractableHoverMeshes: 1
-  m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_InteractableCantHoverMeshMaterial: {fileID: 0}
-  m_SocketActive: 1
-  m_InteractableHoverScale: 1
-  m_RecycleDelayTime: 1
-  m_HoverSocketSnapping: 0
-  m_SocketSnappingRadius: 0.1
-  m_SocketScaleMode: 0
-  m_FixedScale: {x: 1, y: 1, z: 1}
-  m_TargetBoundsSize: {x: 1, y: 1, z: 1}
 --- !u!4 &1063982460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1420554326316580586, guid: 961f23c1b5d3a8c45bda50cd57d652d7, type: 3}
@@ -13952,14 +13904,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -14526,15 +14478,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
-  requiredKeyId: 'B1 '
+  requiredKeyId: B1
   countsTowardEscape: 0
   reusable: 1
-  lockKeyInPlace: 1
+  lockKeyInPlace: 0
   stateChanges: []
   onUnlocked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1441918973}
+      - m_Target: {fileID: 1441918978}
         m_TargetAssemblyTypeName: FlashlightPower, Assembly-CSharp
         m_MethodName: PowerOn
         m_Mode: 4
@@ -14542,19 +14494,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 10
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 108318213}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10
+          m_FloatArgument: 30
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -14609,6 +14549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3885348068341657742, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4120006549087269644, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
       propertyPath: m_Name
       value: FlashLight
@@ -14631,13 +14575,13 @@ PrefabInstance:
       addedObject: {fileID: 1441918963}
     - targetCorrespondingSourceObject: {fileID: 4120006549087269644, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1441918962}
+      addedObject: {fileID: 1441918977}
     - targetCorrespondingSourceObject: {fileID: 4120006549087269644, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1441918972}
+      addedObject: {fileID: 1441918976}
     - targetCorrespondingSourceObject: {fileID: 4120006549087269644, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1441918973}
+      addedObject: {fileID: 1441918978}
     - targetCorrespondingSourceObject: {fileID: 4790043002249546852, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1441918966}
@@ -14652,24 +14596,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4790043002249546852, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
   m_PrefabInstance: {fileID: 1441918959}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1441918962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441918960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1441918963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14888,7 +14814,7 @@ Light:
   m_CorrespondingSourceObject: {fileID: 3885348068341657742, guid: 74b1d93aeb749c845bb0f4aed171c8ea, type: 3}
   m_PrefabInstance: {fileID: 1441918959}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1441918972
+--- !u!114 &1441918976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14905,7 +14831,25 @@ MonoBehaviour:
   coneAngle: 20
   spotLight: {fileID: 1441918969}
   onColor: {r: 0.6, g: 0.2, b: 1, a: 1}
---- !u!114 &1441918973
+--- !u!114 &1441918977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441918960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 0
+  keyId: 
+  glowOnHover: 1
+  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
+  glowIntensity: 1.5
+  respawnBelowY: -5
+--- !u!114 &1441918978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14918,10 +14862,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashlightPower
   flashlightLight: {fileID: 1441918969}
-  blacklight: {fileID: 1441918972}
+  blacklight: {fileID: 1441918976}
   bulbRenderer: {fileID: 0}
   bulbOnEmission: {r: 1, g: 1, b: 1, a: 1}
-  powerOnSound: {fileID: 0}
+  powerOnSound: {fileID: 108318213}
   powerOffSound: {fileID: 0}
 --- !u!1 &1447662668 stripped
 GameObject:
@@ -17269,9 +17213,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5233006353902838768, guid: 961f23c1b5d3a8c45bda50cd57d652d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1063982459}
     - targetCorrespondingSourceObject: {fileID: 5233006353902838768, guid: 961f23c1b5d3a8c45bda50cd57d652d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1063982458}
@@ -20273,7 +20214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
+  isKey: 1
   keyId: B1
   glowOnHover: 1
   glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
