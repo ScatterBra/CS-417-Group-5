@@ -3,64 +3,75 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
-[RequireComponent(typeof(XRGrabInteractable))]
+/// <summary>
+/// Applies a colored filter over the object material. The strength of the filter 
+/// scales with distance up to a max strength. The filter properties are determined
+/// based on the highMaterialTemplate provided to this
+/// </summary>
+[RequireComponent(typeof(XRBaseInteractable))]
 public class PropHighlighter : MonoBehaviour
 {
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material highlightMaterialTemplate;
 
     [Header("Distance Settings")]
-    [SerializeField] private float maxHighlightDistance = 2f;
-    [SerializeField] private float maxFilterStrength = 0.4f;
-    [SerializeField] private float maxOutlineThickness = 4f;
+        // Static variable synced from the ReelClamper
+    [SerializeField] private float maxHighlightDistance = 10.0f;
+    [SerializeField] private float minHighlightDistance = 0.1f;
+    
+    [Header("Filter Strength")]
+    [SerializeField] private float minFilterStrength = 0.05f;
+    [SerializeField] private float maxFilterStrength = 0.33f;
 
-    private Material originalMaterial;
+    private Material[] originalMaterials;
     private Material instanceHighlightMaterial;
-    private XRGrabInteractable interactable;
+    private XRBaseInteractable interactable;
     private IXRHoverInteractor currentInteractor;
+    private bool isHighlighted = false;
 
     void Start()
     {
         if (meshRenderer)
         {
-            originalMaterial = meshRenderer.material;
-
+            originalMaterials = meshRenderer.materials;
             instanceHighlightMaterial = new Material(highlightMaterialTemplate);
-
-            if (originalMaterial.HasProperty("_MainTex") || originalMaterial.HasProperty("_BaseMap"))
-            {
-                Texture originalTex = originalMaterial.mainTexture;
-                instanceHighlightMaterial.SetTexture("_MainText", originalTex);
-            }
         }
 
-        // Set up hover events 
-        interactable = GetComponent<XRGrabInteractable>();
+        interactable = GetComponent<XRBaseInteractable>();
         interactable.hoverEntered.AddListener(EnableHighlight);
         interactable.hoverExited.AddListener(DisableHighlight);
     }
 
     void Update()
     {
-        if (currentInteractor != null && meshRenderer.material == instanceHighlightMaterial)
+        if (currentInteractor != null && isHighlighted)
         {
             float distance = Vector3.Distance(currentInteractor.transform.position, transform.position);
-
-            // Closer distance is more intensity
-            float intensity = Mathf.Clamp01(1f - (distance - maxHighlightDistance));
-
-            instanceHighlightMaterial.SetFloat("_FilterStrength", intensity * maxFilterStrength);
-            instanceHighlightMaterial.SetFloat("_OutlineThickness", intensity * maxOutlineThickness);
+            
+            // Calculate the 0 to 1 intensity based on the global max distance
+            float intensity = Mathf.InverseLerp(maxHighlightDistance, minHighlightDistance, distance);
+            
+            // Blend between the minimum and maximum strength based on that intensity
+            float currentStrength = Mathf.Lerp(minFilterStrength, maxFilterStrength, intensity);
+            
+            instanceHighlightMaterial.SetFloat("_FilterStrength", currentStrength);
         }
     }
-
 
     public void EnableHighlight(HoverEnterEventArgs args)
     {
         if (meshRenderer)
         {
             currentInteractor = args.interactorObject;
-            meshRenderer.material = instanceHighlightMaterial;
+            isHighlighted = true;
+
+            Material[] highlightMaterials = new Material[2];
+            if (originalMaterials.Length > 0)
+            {
+                highlightMaterials[0] = originalMaterials[0];
+            }
+            highlightMaterials[1] = instanceHighlightMaterial;
+            meshRenderer.materials = highlightMaterials;
         }
     }
 
@@ -69,7 +80,8 @@ public class PropHighlighter : MonoBehaviour
         if (meshRenderer)
         {
             currentInteractor = null;
-            meshRenderer.material = originalMaterial;
+            isHighlighted = false;
+            meshRenderer.materials = originalMaterials;
         }
     }
 
@@ -80,9 +92,6 @@ public class PropHighlighter : MonoBehaviour
             interactable.hoverEntered.RemoveListener(EnableHighlight);
             interactable.hoverExited.RemoveListener(DisableHighlight);
         }
-        if (instanceHighlightMaterial)
-        {
-            Destroy(instanceHighlightMaterial);
-        }
+        if (instanceHighlightMaterial) Destroy(instanceHighlightMaterial);
     }
 }

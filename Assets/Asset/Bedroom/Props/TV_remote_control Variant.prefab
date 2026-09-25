@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1329417163204839198
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5981044124168690751}
-  m_Layer: 0
-  m_Name: GrabPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5981044124168690751
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329417163204839198}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.04, y: 0.005, z: -0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 3361943110569148779}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &158088043289383508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalScale.y
@@ -53,23 +22,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13475657
+      value: -0.5120475
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16500002
+      value: -0.49600393
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.18537998
+      value: -0.79698706
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.36743703
+      value: 0.9300484
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalRotation.x
@@ -77,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9300484
+      value: -0.36743703
       objectReference: {fileID: 0}
     - target: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
       propertyPath: m_LocalRotation.z
@@ -101,14 +70,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5981044124168690751}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2869481128496695685, guid: 7614acfd37724644e886208938123853, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7366257387518746676}
+    - targetCorrespondingSourceObject: {fileID: 2869481128496695685, guid: 7614acfd37724644e886208938123853, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917364977120035601}
   m_SourcePrefab: {fileID: 100100000, guid: 7614acfd37724644e886208938123853, type: 3}
 --- !u!1 &2730260951901903825 stripped
 GameObject:
@@ -189,7 +158,7 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
-  m_AttachTransform: {fileID: 5981044124168690751}
+  m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -245,8 +214,26 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
---- !u!4 &3361943110569148779 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3213777167683670847, guid: 7614acfd37724644e886208938123853, type: 3}
+--- !u!114 &1917364977120035601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730260951901903825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  meshRenderer: {fileID: 4531511481402145284}
+  highlightMaterialTemplate: {fileID: 2100000, guid: a6112a2f15f4b61449cc8a818fa179b8, type: 2}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.05
+  maxFilterStrength: 0.33
+--- !u!23 &4531511481402145284 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4382721046379505744, guid: 7614acfd37724644e886208938123853, type: 3}
   m_PrefabInstance: {fileID: 158088043289383508}
   m_PrefabAsset: {fileID: 0}
