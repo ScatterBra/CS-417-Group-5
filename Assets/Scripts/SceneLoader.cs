@@ -25,7 +25,7 @@ public sealed class SceneLoader : MonoBehaviour
     public XRNode controllerHand = XRNode.LeftHand;
     public enum ControllerButton { Primary, Secondary, Grip, Trigger }
     public ControllerButton controllerButton = ControllerButton.Secondary;
-    public string buttonLabel = "Y (Left Hand) / E";
+    public string buttonLabel = "Y";
 
     private float heldTime;
     private bool isLoading;
@@ -54,8 +54,8 @@ public sealed class SceneLoader : MonoBehaviour
         }
         if (nearby && promptText != null)
         {
-            promptText.text = !CanTravel ? "Complete this room's puzzle first" : isLoading ? "Loading..." :
-                loadError ?? $"Hold {buttonLabel} to travel\n{Mathf.Clamp01(heldTime / Mathf.Max(0.1f, holdDuration)):P0}";
+            promptText.text = !CanTravel ? "Locked" : isLoading ? "Loading..." :
+                loadError ?? $"Hold {buttonLabel} to Enter";
         }
         if (nearby && promptRoot != null) promptRoot.transform.rotation = camera.transform.rotation;
     }

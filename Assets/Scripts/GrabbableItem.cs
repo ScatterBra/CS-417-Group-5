@@ -3,12 +3,17 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 /// <summary>Trigger grabbing through PlayerRig. Configure physics components separately.</summary>
 [DisallowMultipleComponent]
+[RequireComponent(typeof(ItemPrompt))]
 public sealed class GrabbableItem : MonoBehaviour
 {
     public const int GrabLayer = 1 << 8;
 
     private void Reset() => ConfigureGrab(false);
-    private void Awake() => ConfigureGrab(true);
+    private void Awake()
+    {
+        ConfigureGrab(true);
+        if (GetComponent<ItemPrompt>() == null) gameObject.AddComponent<ItemPrompt>();
+    }
 
     private void ConfigureGrab(bool reportMissing)
     {
