@@ -1242,7 +1242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1250,7 +1250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2189,7 +2189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.3}
+  m_AnchoredPosition: {x: 0, y: 2.4}
   m_SizeDelta: {x: 3, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &418071437
@@ -2212,18 +2212,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    You need 3 keycards to unlock the door.
-
-
-    Turn each key in at
-    their corresponding locations underneath the console screen.
+  m_text: 'Silly me! I locked myself inside of the greenhouse again! Thankfully I
+    can call someone to let me out...
 
 
-    The first
-    key is easy to find, and I''m sure the second one is hiding somewhere, but the
-    last one is behind a shield... maybe your job here isn''t complete...?
+    I know I put the 1st keycard somewhere
+    close by, but I have no idea where the 2nd one is... maybe it''s hiding from
+    me?
+
+
+    Ugh... and I can''t leave without the one that''s under that stupid
+    shield... SCREW THIS JOB!!!!!!!
+
+
+    - John Greenhouse
+
 
 
 '
@@ -2253,8 +2256,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.5
-  m_fontSizeBase: 1.5
+  m_fontSize: 1.4
+  m_fontSizeBase: 1.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5318,7 +5321,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 2
-  m_Color: {r: 0.55660367, g: 0.9542528, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.06334686, b: 0, a: 1}
   m_Intensity: 10
   m_Range: 100
   m_SpotAngle: 30
@@ -6972,7 +6975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447618, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.156
+      value: 0.421
       objectReference: {fileID: 0}
     - target: {fileID: 447618, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11296,7 +11299,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 2
-  m_Color: {r: 1, g: 0.8638461, b: 0.8018867, a: 1}
+  m_Color: {r: 0.7924528, g: 0.55347997, b: 0.20683512, a: 1}
   m_Intensity: 10
   m_Range: 100
   m_SpotAngle: 30
@@ -12540,7 +12543,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 2
-  m_Color: {r: 0.31138, g: 0.7534553, b: 0.8050314, a: 1}
+  m_Color: {r: 0.6603774, g: 0.50786847, b: 0.1308294, a: 1}
   m_Intensity: 5
   m_Range: 100
   m_SpotAngle: 30
