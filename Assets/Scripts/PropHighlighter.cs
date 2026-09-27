@@ -85,6 +85,15 @@ public class PropHighlighter : MonoBehaviour
         }
     }
 
+    public void SwapHighlightTemplate(Material newTemplate)
+    {
+        highlightMaterialTemplate = newTemplate;
+        
+        // Destroy the old instance to prevent memory leaks, then create the new one
+        if (instanceHighlightMaterial != null) Destroy(instanceHighlightMaterial);
+        instanceHighlightMaterial = new Material(highlightMaterialTemplate);
+    }
+    
     private void OnDestroy()
     {
         if (interactable)
