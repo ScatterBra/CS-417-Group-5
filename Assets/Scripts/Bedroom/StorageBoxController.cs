@@ -43,11 +43,12 @@ public class StorageBoxController : MonoBehaviour
             }
 
             // Unparent the lid so it flies independently of the base
-            lidRigidbody.transform.SetParent(null); 
+            // lidRigidbody.transform.SetParent(null); 
 
             // Enable grabbing so the player can catch or pick it up
             if (lidGrabInteractable != null)
             {
+                lidGrabInteractable.enabled = true;
                 lidGrabInteractable.interactionLayers = InteractionLayerMask.GetMask("Default");
             }
 
