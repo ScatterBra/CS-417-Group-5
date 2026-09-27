@@ -28,7 +28,7 @@ public class LaptopTerminal : MonoBehaviour
 
     private XRBaseInteractable interactable;
     private bool isHovered = false;
-    private bool isLidOpen = false;
+    private bool isLidOpen = true;
     private bool isFlashDrivePluggedIn = false;
 
     private Coroutine hingeCoroutine;

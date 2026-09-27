@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Events; // Required for UnityEvents
+using UnityEngine.Events;
 
 public class KeypadController : MonoBehaviour
 {
     [Header("Setup")]
     [SerializeField] private TextMeshProUGUI passwordDisplay;
     [SerializeField] private string correctCode = "1234";
-    [SerializeField] private int maxDigits = 10;
+    [SerializeField] private int maxDigits = 4; 
 
     [Header("Feedback Icons")]
     [SerializeField] private GameObject checkIcon;
@@ -21,11 +21,14 @@ public class KeypadController : MonoBehaviour
     [SerializeField] private float targetOpacity = 1.0f;
 
     [Header("Success Events")]
-    public UnityEvent onUnlockSuccess; // Drag your chest into this in the Inspector
+    public UnityEvent onUnlockSuccess; 
 
     private string currentInput = "";
     private Coroutine feedbackCoroutine;
     private Coroutine fadeCoroutine;
+    
+    // Flag to disable input after success
+    private bool isSolved = false;
 
     void OnEnable()
     {
@@ -39,7 +42,10 @@ public class KeypadController : MonoBehaviour
 
     void Start()
     {
-        ClearInput();
+        isSolved = false;
+        currentInput = "";
+        UpdateDisplay(); // This will show the initial "X DIGITS" prompt
+        
         if (checkIcon != null) checkIcon.SetActive(false);
         if (crossIcon != null) crossIcon.SetActive(false);
     }
@@ -58,6 +64,9 @@ public class KeypadController : MonoBehaviour
 
     public void AddDigit(string digit)
     {
+        // Block input if the puzzle is already solved
+        if (isSolved) return;
+
         if (currentInput.Length < maxDigits)
         {
             currentInput += digit;
@@ -67,16 +76,30 @@ public class KeypadController : MonoBehaviour
 
     public void ClearInput()
     {
+        // Block clearing if already solved
+        if (isSolved) return;
+
         currentInput = "";
         UpdateDisplay();
     }
 
     public void SubmitCode()
     {
+        // Block submission spam if already solved
+        if (isSolved) return;
+
         if (currentInput == correctCode)
         {
+            isSolved = true;
+            
+            if (passwordDisplay != null) 
+            {
+                passwordDisplay.text = "SOLVED";
+                passwordDisplay.color = Color.skyBlue; 
+            }
+            
             TriggerFeedback(true);
-            onUnlockSuccess.Invoke(); // Fires the chest open script
+            onUnlockSuccess.Invoke(); 
         }
         else
         {
@@ -87,7 +110,18 @@ public class KeypadController : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        if (passwordDisplay != null) passwordDisplay.text = currentInput;
+        if (passwordDisplay != null) 
+        {
+            // Show prompt if empty, otherwise show what the player typed
+            if (string.IsNullOrEmpty(currentInput))
+            {
+                passwordDisplay.text = maxDigits + " DIGITS";
+            }
+            else
+            {
+                passwordDisplay.text = currentInput;
+            }
+        }
     }
 
     private void TriggerFeedback(bool isSuccess)
@@ -108,7 +142,10 @@ public class KeypadController : MonoBehaviour
 
         yield return new WaitForSeconds(feedbackDuration);
 
-        if (checkIcon != null) checkIcon.SetActive(false);
-        if (crossIcon != null) crossIcon.SetActive(false);
+        // Keep the check icon on permanently if it was successful, otherwise turn cross off
+        if (!isSuccess)
+        {
+            if (crossIcon != null) crossIcon.SetActive(false);
+        }
     }
 }

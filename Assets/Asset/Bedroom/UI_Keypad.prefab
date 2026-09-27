@@ -6047,13 +6047,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeypadController
   passwordDisplay: {fileID: 6854508188037636536}
   correctCode: 1234
-  maxDigits: 10
+  maxDigits: 8
   checkIcon: {fileID: 1560302653139979216}
   crossIcon: {fileID: 5912005192367465439}
   feedbackDuration: 1.5
   canvasGroup: {fileID: 119244034376447329}
   fadeDuration: 1
   targetOpacity: 0.5
+  onUnlockSuccess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!225 &119244034376447329
 CanvasGroup:
   m_ObjectHideFlags: 0
