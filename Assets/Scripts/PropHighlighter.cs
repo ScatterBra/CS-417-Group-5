@@ -20,7 +20,7 @@ public class PropHighlighter : MonoBehaviour
     [SerializeField] private float minHighlightDistance = 0.1f;
     
     [Header("Filter Strength")]
-    [SerializeField] private float minFilterStrength = 0.05f;
+    [SerializeField] private float minFilterStrength = 0.03f;
     [SerializeField] private float maxFilterStrength = 0.33f;
 
     private Material[] originalMaterials;

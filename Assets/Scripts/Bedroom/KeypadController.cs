@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events; // Required for UnityEvents
 
 public class KeypadController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class KeypadController : MonoBehaviour
     [SerializeField] private float fadeDuration = 1.0f;
     [SerializeField] private float targetOpacity = 1.0f;
 
+    [Header("Success Events")]
+    public UnityEvent onUnlockSuccess; // Drag your chest into this in the Inspector
+
     private string currentInput = "";
     private Coroutine feedbackCoroutine;
     private Coroutine fadeCoroutine;
@@ -27,7 +31,7 @@ public class KeypadController : MonoBehaviour
     {
         if (canvasGroup != null)
         {
-            canvasGroup.alpha = 0f; // Start completely transparent
+            canvasGroup.alpha = 0f; 
             if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
             fadeCoroutine = StartCoroutine(FadeIn());
         }
@@ -52,32 +56,27 @@ public class KeypadController : MonoBehaviour
         canvasGroup.alpha = targetOpacity;
     }
 
-    // Called by the 0-9 buttons
     public void AddDigit(string digit)
     {
         if (currentInput.Length < maxDigits)
         {
             currentInput += digit;
-            Debug.Log(digit);
             UpdateDisplay();
         }
     }
 
-    // Called by the Clear button
     public void ClearInput()
     {
         currentInput = "";
         UpdateDisplay();
     }
 
-    // Called by the Enter button
     public void SubmitCode()
     {
         if (currentInput == correctCode)
         {
             TriggerFeedback(true);
-            // Add your success logic here
-            Debug.Log("Laptop unlocked!");
+            onUnlockSuccess.Invoke(); // Fires the chest open script
         }
         else
         {
@@ -93,24 +92,20 @@ public class KeypadController : MonoBehaviour
 
     private void TriggerFeedback(bool isSuccess)
     {
-        // Stop any existing feedback to reset the timer
         if (feedbackCoroutine != null) StopCoroutine(feedbackCoroutine);
         feedbackCoroutine = StartCoroutine(ShowFeedbackRoutine(isSuccess));
     }
 
     private IEnumerator ShowFeedbackRoutine(bool isSuccess)
     {
-        // Turn both off for a split second to create a noticeable blink
         if (checkIcon != null) checkIcon.SetActive(false);
         if (crossIcon != null) crossIcon.SetActive(false);
         
         yield return new WaitForSeconds(0.1f);
 
-        // Turn on the correct icon
         if (isSuccess && checkIcon != null) checkIcon.SetActive(true);
         else if (!isSuccess && crossIcon != null) crossIcon.SetActive(true);
 
-        // Wait, then hide them again
         yield return new WaitForSeconds(feedbackDuration);
 
         if (checkIcon != null) checkIcon.SetActive(false);
