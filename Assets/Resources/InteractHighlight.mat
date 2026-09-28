@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HighlightTemplate
+  m_Name: InteractHighlight
   m_Shader: {fileID: -6465566751694194690, guid: b815126e2b9f4f54cb4c69d9a0cb6df1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -49,7 +49,7 @@ Material:
     - _QueueOffset: 0
     - _XRMotionVectorsPass: 1
     m_Colors:
-    - _FilterColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FilterColor: {r: 0.5377358, g: 0.902411, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

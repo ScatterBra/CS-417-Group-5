@@ -5,10 +5,16 @@ using UnityEngine.Events;
 
 public class KeypadController : MonoBehaviour
 {
+    [Tooltip("Requires this puzzle to be solved first. Leave blank for no prerequisite.")]
+    [SerializeField] private string prerequisitePuzzleId = "";
+
     [Header("Setup")]
     [SerializeField] private TextMeshProUGUI passwordDisplay;
     [SerializeField] private string correctCode = "1234";
     [SerializeField] private int maxDigits = 4; 
+    
+    [Tooltip("The ID sent to GameProgress when solved. Leave blank to ignore.")]
+    [SerializeField] private string puzzleId;
 
     [Header("Feedback Icons")]
     [SerializeField] private GameObject checkIcon;
@@ -88,14 +94,36 @@ public class KeypadController : MonoBehaviour
         // Block submission spam if already solved
         if (isSolved) return;
 
+        // --- ENFORCE ORDER ---
+        if (!string.IsNullOrWhiteSpace(prerequisitePuzzleId) && !GameProgress.IsPuzzleCompleted(prerequisitePuzzleId))
+        {
+            // Reject the input because they skipped a step
+            TriggerFeedback(false);
+            ClearInput(); 
+            
+            if (passwordDisplay != null) 
+            {
+                passwordDisplay.text = "SEQ ERR"; // Sequence Error
+                passwordDisplay.color = Color.red;
+            }
+            return;
+        }
+        // ---------------------
+
         if (currentInput == correctCode)
         {
             isSolved = true;
+
+            // Only log if you actually typed an ID in the Inspector
+            if (!string.IsNullOrWhiteSpace(puzzleId))
+            {
+                GameProgress.CompletePuzzle(puzzleId);
+            }
             
             if (passwordDisplay != null) 
             {
                 passwordDisplay.text = "SOLVED";
-                passwordDisplay.color = Color.skyBlue; 
+                passwordDisplay.color = Color.cyan; 
             }
             
             TriggerFeedback(true);

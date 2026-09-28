@@ -70,6 +70,8 @@ public class CardScanner : MonoBehaviour
 
         // Lock in the success state
         isUnlocked = true;
+
+        GameProgress.CompletePuzzle("BedDrawerScanner");
         if (scannerMeshRenderer != null) scannerMeshRenderer.material = successMaterial;
         if (audioSource && successBeep) audioSource.PlayOneShot(successBeep);
         if (connectedDrawer != null) connectedDrawer.Unlock();
