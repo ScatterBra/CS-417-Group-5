@@ -306,7 +306,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8407261471513019728
 MonoBehaviour:
@@ -1103,7 +1103,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6708553812838072720
 MonoBehaviour:
@@ -1388,7 +1388,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8666111759067121907
 MonoBehaviour:
@@ -1673,7 +1673,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8368594969995006477
 MonoBehaviour:
@@ -2519,7 +2519,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2172474760275710217
 MonoBehaviour:
@@ -2941,7 +2941,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4789487617173009508
 MonoBehaviour:
@@ -3301,7 +3301,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &285051390281892671
 MonoBehaviour:
@@ -3935,7 +3935,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6653170823102876658
 MonoBehaviour:
@@ -4432,7 +4432,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8561845255024434234
 MonoBehaviour:
@@ -5293,7 +5293,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1948331609819692526
 MonoBehaviour:
@@ -6045,9 +6045,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31c7ef254aec304ea663563dce598e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeypadController
+  prerequisitePuzzleId: 
   passwordDisplay: {fileID: 6854508188037636536}
   correctCode: 1234
   maxDigits: 8
+  puzzleId: 
   checkIcon: {fileID: 1560302653139979216}
   crossIcon: {fileID: 5912005192367465439}
   feedbackDuration: 1.5
@@ -6225,7 +6227,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5069437555099188582
 MonoBehaviour:
@@ -6510,7 +6512,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7609913453753512972
 MonoBehaviour:
