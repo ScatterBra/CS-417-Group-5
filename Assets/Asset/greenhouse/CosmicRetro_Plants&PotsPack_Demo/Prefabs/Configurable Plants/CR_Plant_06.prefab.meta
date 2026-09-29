@@ -10,5 +10,6 @@ AssetOrigin:
   productId: 406664
   packageName: FREE Low Poly Plants & Pots Demo with Growth System / Cosmic Retro
   packageVersion: 1.0
-  assetPath: Assets/CosmicRetro_Plants&PotsPack_Demo/Prefabs/Configurable Plants/CR_Plant_06.prefab
+  assetPath: Assets/Asset/greenhouse/CosmicRetro_Plants&PotsPack_Demo/Prefabs/Configurable
+    Plants/CR_Plant_06.prefab
   uploadId: 992670
