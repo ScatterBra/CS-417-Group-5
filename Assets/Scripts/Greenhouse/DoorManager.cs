@@ -3,6 +3,8 @@ using UnityEngine;
 public class DoorManager : MonoBehaviour
 {
     public GameObject door;
+    private SceneLoader sceneLoader;
+    private string RoomId => string.IsNullOrWhiteSpace(roomId) ? gameObject.scene.path : roomId.Trim();
     public DoorConsole console;
 
     private bool blueKey;
@@ -38,9 +40,9 @@ public class DoorManager : MonoBehaviour
     private void UnlockDoor()
     {
         Debug.Log("UNLOCKED UNLOCKED UNLOCKED");
-        if (door != null)
+        if (sceneLoader != null)
         {
-            door.SetActive(false);
+            sceneLoader.SetUnlocked(true);
         }
 
         if (console != null)
