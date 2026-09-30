@@ -28,7 +28,7 @@ public class LaptopTerminal : MonoBehaviour
 
     private XRBaseInteractable interactable;
     private bool isHovered = false;
-    private bool isLidOpen = false;
+    private bool isLidOpen = true;
     private bool isFlashDrivePluggedIn = false;
 
     private Coroutine hingeCoroutine;
@@ -44,6 +44,9 @@ public class LaptopTerminal : MonoBehaviour
         // Ensure popup starts fully transparent
         if (popupCanvasGroup != null) popupCanvasGroup.alpha = 0f;
         
+        // Force the hinge to match the boolean state to prevent desync
+        lidPivot.localRotation = isLidOpen ? Quaternion.Euler(openRotation) : Quaternion.Euler(closedRotation);
+
         TurnOffScreenInstant();
     }
 

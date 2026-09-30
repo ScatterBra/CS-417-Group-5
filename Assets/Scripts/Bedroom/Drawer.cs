@@ -14,6 +14,12 @@ public class Drawer : MonoBehaviour
     private bool isOpen = false;
     private bool isHovered = false;
 
+    [Header("Locked Feedback UI")]
+    [Tooltip("Drag a disabled UI GameObject here to show when locked.")]
+    [SerializeField] private GameObject lockedTextUI;
+    [SerializeField] private float lockedTextDuration = 2.0f;
+    private Coroutine lockedTextCoroutine;
+
     [Header("Movement")]
     [SerializeField] private Transform drawerTransform;
     [SerializeField] private float openZOffset = 0.5f; 
@@ -21,7 +27,6 @@ public class Drawer : MonoBehaviour
 
     [Header("Drawer Audio")]
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip lockedRattleSound;
     [SerializeField] private AudioClip latchUnlockSound;
     [SerializeField] private AudioClip drawerOpenSound;
     [SerializeField] private AudioClip drawerCloseSound;
@@ -81,7 +86,8 @@ public class Drawer : MonoBehaviour
         // If it's locked but open, allow the player to close it.
         if (isLocked && !isOpen)
         {
-            if (audioSource && lockedRattleSound) audioSource.PlayOneShot(lockedRattleSound);
+            if (lockedTextCoroutine != null) StopCoroutine(lockedTextCoroutine);
+                lockedTextCoroutine = StartCoroutine(ShowLockedText());
             return;
         }
 
@@ -106,6 +112,9 @@ public class Drawer : MonoBehaviour
     {
         if (!isLocked) return;
         isLocked = false;
+
+        GameProgress.CompletePuzzle("Bed_Drawer_Unlocked");
+
         if (audioSource && latchUnlockSound) audioSource.PlayOneShot(latchUnlockSound);
     }
 
@@ -136,6 +145,16 @@ public class Drawer : MonoBehaviour
             
         rb.MovePosition(finalWorldPos);
         drawerTransform.localPosition = targetPosition; 
+    }
+
+    private IEnumerator ShowLockedText()
+    {
+        if (lockedTextUI != null)
+        {
+            lockedTextUI.SetActive(true);
+            yield return new WaitForSeconds(lockedTextDuration);
+            lockedTextUI.SetActive(false);
+        }
     }
     
     private void OnDestroy()

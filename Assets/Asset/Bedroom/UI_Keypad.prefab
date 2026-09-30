@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3541041535841817748
 CanvasRenderer:
@@ -110,7 +110,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3838539602058458851
 CanvasRenderer:
@@ -306,7 +306,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8407261471513019728
 MonoBehaviour:
@@ -470,7 +470,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4150916314784964050
 CanvasRenderer:
@@ -620,7 +620,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2201698515120221802
 CanvasRenderer:
@@ -695,7 +695,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3521025115966876555
 CanvasRenderer:
@@ -770,7 +770,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8345220780532623717
 CanvasRenderer:
@@ -1103,7 +1103,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6708553812838072720
 MonoBehaviour:
@@ -1388,7 +1388,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8666111759067121907
 MonoBehaviour:
@@ -1673,7 +1673,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8368594969995006477
 MonoBehaviour:
@@ -1974,7 +1974,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4235787988011072977
 CanvasRenderer:
@@ -2186,7 +2186,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1276692655899509487
 CanvasRenderer:
@@ -2519,7 +2519,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2172474760275710217
 MonoBehaviour:
@@ -2941,7 +2941,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4789487617173009508
 MonoBehaviour:
@@ -3105,7 +3105,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &911944500117233745
 CanvasRenderer:
@@ -3301,7 +3301,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &285051390281892671
 MonoBehaviour:
@@ -3739,7 +3739,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6242947997095432577
 CanvasRenderer:
@@ -3935,7 +3935,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6653170823102876658
 MonoBehaviour:
@@ -4432,7 +4432,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8561845255024434234
 MonoBehaviour:
@@ -4596,7 +4596,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6570632294437185135
 CanvasRenderer:
@@ -5293,7 +5293,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1948331609819692526
 MonoBehaviour:
@@ -5731,7 +5731,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 330, y: 150}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8043096296536379014
 CanvasRenderer:
@@ -5996,7 +5996,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7383448642558518804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6045,15 +6045,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31c7ef254aec304ea663563dce598e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeypadController
+  prerequisitePuzzleId: 
   passwordDisplay: {fileID: 6854508188037636536}
   correctCode: 1234
-  maxDigits: 10
+  maxDigits: 8
+  puzzleId: 
   checkIcon: {fileID: 1560302653139979216}
   crossIcon: {fileID: 5912005192367465439}
   feedbackDuration: 1.5
   canvasGroup: {fileID: 119244034376447329}
   fadeDuration: 1
   targetOpacity: 0.5
+  onUnlockSuccess:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!225 &119244034376447329
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6222,7 +6227,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5069437555099188582
 MonoBehaviour:
@@ -6507,7 +6512,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 150, z: 1}
+  m_Size: {x: 150, y: 150, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7609913453753512972
 MonoBehaviour:

@@ -1,13 +1,20 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class KeypadController : MonoBehaviour
 {
+    [Tooltip("Requires this puzzle to be solved first. Leave blank for no prerequisite.")]
+    [SerializeField] private string prerequisitePuzzleId = "";
+
     [Header("Setup")]
     [SerializeField] private TextMeshProUGUI passwordDisplay;
     [SerializeField] private string correctCode = "1234";
-    [SerializeField] private int maxDigits = 10;
+    [SerializeField] private int maxDigits = 4; 
+    
+    [Tooltip("The ID sent to GameProgress when solved. Leave blank to ignore.")]
+    [SerializeField] private string puzzleId;
 
     [Header("Feedback Icons")]
     [SerializeField] private GameObject checkIcon;
@@ -19,15 +26,21 @@ public class KeypadController : MonoBehaviour
     [SerializeField] private float fadeDuration = 1.0f;
     [SerializeField] private float targetOpacity = 1.0f;
 
+    [Header("Success Events")]
+    public UnityEvent onUnlockSuccess; 
+
     private string currentInput = "";
     private Coroutine feedbackCoroutine;
     private Coroutine fadeCoroutine;
+    
+    // Flag to disable input after success
+    private bool isSolved = false;
 
     void OnEnable()
     {
         if (canvasGroup != null)
         {
-            canvasGroup.alpha = 0f; // Start completely transparent
+            canvasGroup.alpha = 0f; 
             if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
             fadeCoroutine = StartCoroutine(FadeIn());
         }
@@ -35,7 +48,10 @@ public class KeypadController : MonoBehaviour
 
     void Start()
     {
-        ClearInput();
+        isSolved = false;
+        currentInput = "";
+        UpdateDisplay(); // This will show the initial "X DIGITS" prompt
+        
         if (checkIcon != null) checkIcon.SetActive(false);
         if (crossIcon != null) crossIcon.SetActive(false);
     }
@@ -52,32 +68,66 @@ public class KeypadController : MonoBehaviour
         canvasGroup.alpha = targetOpacity;
     }
 
-    // Called by the 0-9 buttons
     public void AddDigit(string digit)
     {
+        // Block input if the puzzle is already solved
+        if (isSolved) return;
+
         if (currentInput.Length < maxDigits)
         {
             currentInput += digit;
-            Debug.Log(digit);
             UpdateDisplay();
         }
     }
 
-    // Called by the Clear button
     public void ClearInput()
     {
+        // Block clearing if already solved
+        if (isSolved) return;
+
         currentInput = "";
         UpdateDisplay();
     }
 
-    // Called by the Enter button
     public void SubmitCode()
     {
+        // Block submission spam if already solved
+        if (isSolved) return;
+
+        // --- ENFORCE ORDER ---
+        if (!string.IsNullOrWhiteSpace(prerequisitePuzzleId) && !GameProgress.IsPuzzleCompleted(prerequisitePuzzleId))
+        {
+            // Reject the input because they skipped a step
+            TriggerFeedback(false);
+            ClearInput(); 
+            
+            if (passwordDisplay != null) 
+            {
+                passwordDisplay.text = "SEQ ERR"; // Sequence Error
+                passwordDisplay.color = Color.red;
+            }
+            return;
+        }
+        // ---------------------
+
         if (currentInput == correctCode)
         {
+            isSolved = true;
+
+            // Only log if you actually typed an ID in the Inspector
+            if (!string.IsNullOrWhiteSpace(puzzleId))
+            {
+                GameProgress.CompletePuzzle(puzzleId);
+            }
+            
+            if (passwordDisplay != null) 
+            {
+                passwordDisplay.text = "SOLVED";
+                passwordDisplay.color = Color.cyan; 
+            }
+            
             TriggerFeedback(true);
-            // Add your success logic here
-            Debug.Log("Laptop unlocked!");
+            onUnlockSuccess.Invoke(); 
         }
         else
         {
@@ -88,32 +138,42 @@ public class KeypadController : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        if (passwordDisplay != null) passwordDisplay.text = currentInput;
+        if (passwordDisplay != null) 
+        {
+            // Show prompt if empty, otherwise show what the player typed
+            if (string.IsNullOrEmpty(currentInput))
+            {
+                passwordDisplay.text = maxDigits + " DIGITS";
+            }
+            else
+            {
+                passwordDisplay.text = currentInput;
+            }
+        }
     }
 
     private void TriggerFeedback(bool isSuccess)
     {
-        // Stop any existing feedback to reset the timer
         if (feedbackCoroutine != null) StopCoroutine(feedbackCoroutine);
         feedbackCoroutine = StartCoroutine(ShowFeedbackRoutine(isSuccess));
     }
 
     private IEnumerator ShowFeedbackRoutine(bool isSuccess)
     {
-        // Turn both off for a split second to create a noticeable blink
         if (checkIcon != null) checkIcon.SetActive(false);
         if (crossIcon != null) crossIcon.SetActive(false);
         
         yield return new WaitForSeconds(0.1f);
 
-        // Turn on the correct icon
         if (isSuccess && checkIcon != null) checkIcon.SetActive(true);
         else if (!isSuccess && crossIcon != null) crossIcon.SetActive(true);
 
-        // Wait, then hide them again
         yield return new WaitForSeconds(feedbackDuration);
 
-        if (checkIcon != null) checkIcon.SetActive(false);
-        if (crossIcon != null) crossIcon.SetActive(false);
+        // Keep the check icon on permanently if it was successful, otherwise turn cross off
+        if (!isSuccess)
+        {
+            if (crossIcon != null) crossIcon.SetActive(false);
+        }
     }
 }
