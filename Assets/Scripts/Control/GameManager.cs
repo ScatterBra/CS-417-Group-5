@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        collectibleTotal = Collectible.All.Count;
+        //collectibleTotal = Collectible.All.Count;
         if (winMessage) winMessage.SetActive(false);
         RefreshUI();
     }
