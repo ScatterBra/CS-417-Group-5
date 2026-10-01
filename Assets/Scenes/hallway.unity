@@ -1962,6 +1962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776431352}
   - component: {fileID: 776431353}
+  - component: {fileID: 776431354}
   m_Layer: 0
   m_Name: BathroomDoor
   m_TagString: Untagged
@@ -2012,6 +2013,26 @@ MonoBehaviour:
   controllerHand: 4
   controllerButton: 1
   buttonLabel: Y
+--- !u!114 &776431354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776431351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b673474cc16916545ada2f8f72d5decd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BathroomDoor
+  loader: {fileID: 0}
+  door: {fileID: 776431351}
+  requiredRoomIds:
+  - greenhouse
+  - CaptainsQuarters
+  - lab
+  - controlroom
+  - office
 --- !u!1001 &786702613
 PrefabInstance:
   m_ObjectHideFlags: 0
