@@ -4,6 +4,7 @@ public class DoorManager : MonoBehaviour
 {
     public GameObject door;
     private SceneLoader sceneLoader;
+    private string roomId;
     private string RoomId => string.IsNullOrWhiteSpace(roomId) ? gameObject.scene.path : roomId.Trim();
     public DoorConsole console;
 
