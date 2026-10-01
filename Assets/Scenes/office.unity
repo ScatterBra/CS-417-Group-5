@@ -523,6 +523,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5795900583283186902, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 17516013}
+    - targetCorrespondingSourceObject: {fileID: 5795900583283186902, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 17516016}
   m_SourcePrefab: {fileID: 100100000, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
 --- !u!1 &17516012 stripped
 GameObject:
@@ -667,7 +670,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17516012}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -686,6 +689,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &17516015 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3947140497647586963, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
+  m_PrefabInstance: {fileID: 17516011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &17516016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17516012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 17516015}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &19596322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1477,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 39317304}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 39317307}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &39317303 stripped
 GameObject:
@@ -1610,6 +1643,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &39317306 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 39317302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &39317307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39317303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 39317306}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &43881687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +2170,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9108558609450279677, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 65653122}
+    - targetCorrespondingSourceObject: {fileID: 9108558609450279677, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 65653123}
   m_SourcePrefab: {fileID: 100100000, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
 --- !u!1 &65653113 stripped
 GameObject:
@@ -2131,6 +2194,11 @@ MonoBehaviour:
   scoreValue: 1
   interactionDistance: 0.25
   promptRoot: {fileID: 0}
+--- !u!23 &65653115 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7307342990936343336, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
+  m_PrefabInstance: {fileID: 65653112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &65653118
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2139,7 +2207,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65653113}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2323,6 +2391,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemPrompt
   promptRoot: {fileID: 0}
   interactionDistance: 2.5
+--- !u!114 &65653123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65653113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 65653115}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &69322019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6870718039048974671, guid: de0e7d253fc4103488924a806ca958f4, type: 3}
@@ -4359,7 +4449,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7855801402627684360, guid: 319dd94a1b94d5d42828fc9a55f6b6fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 821651848}
+    - targetCorrespondingSourceObject: {fileID: 7855801402627684360, guid: 319dd94a1b94d5d42828fc9a55f6b6fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 821651852}
   m_SourcePrefab: {fileID: 100100000, guid: 319dd94a1b94d5d42828fc9a55f6b6fb, type: 3}
+--- !u!23 &221445222 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8504368057912449501, guid: 319dd94a1b94d5d42828fc9a55f6b6fb, type: 3}
+  m_PrefabInstance: {fileID: 221445221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &223016627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 339003252380639639, guid: bc0c43adb925d414f8d2ea00d5bb3a41, type: 3}
@@ -5079,6 +5177,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2888378232633199155, guid: f0637802686820949a6886a224a5cfa5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 300202071}
+    - targetCorrespondingSourceObject: {fileID: 2888378232633199155, guid: f0637802686820949a6886a224a5cfa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300202074}
   m_SourcePrefab: {fileID: 100100000, guid: f0637802686820949a6886a224a5cfa5, type: 3}
 --- !u!1 &300202070 stripped
 GameObject:
@@ -5223,7 +5324,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300202070}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5242,6 +5343,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &300202073 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5177428392290156052, guid: f0637802686820949a6886a224a5cfa5, type: 3}
+  m_PrefabInstance: {fileID: 300202069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &300202074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300202070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 300202073}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1001 &301158970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6133,6 +6261,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3654212251234017186, guid: 9640fb100b0e87544a65a922b5bd2cf9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 358207262}
+    - targetCorrespondingSourceObject: {fileID: 3654212251234017186, guid: 9640fb100b0e87544a65a922b5bd2cf9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 358207265}
   m_SourcePrefab: {fileID: 100100000, guid: 9640fb100b0e87544a65a922b5bd2cf9, type: 3}
 --- !u!1 &358207259 stripped
 GameObject:
@@ -6288,6 +6419,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyOutlineShell
   outlineMaterial: {fileID: 2100000, guid: a9dcdbc3656b2ac4295a41bffb5a57e0, type: 2}
   keepAlphaMask: 0
+--- !u!23 &358207263 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1923475822653788273, guid: 9640fb100b0e87544a65a922b5bd2cf9, type: 3}
+  m_PrefabInstance: {fileID: 358207258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &358207264
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6296,7 +6432,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358207259}
   serializedVersion: 5
-  m_Mass: 0.35
+  m_Mass: 1.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6315,6 +6451,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &358207265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358207259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 358207263}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &360573706
 GameObject:
   m_ObjectHideFlags: 0
@@ -8163,6 +8321,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 471837298}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 471837301}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &471837297 stripped
 GameObject:
@@ -8326,6 +8487,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &471837300 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 471837296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &471837301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471837297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 471837300}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &484199798
 GameObject:
   m_ObjectHideFlags: 0
@@ -9016,6 +9204,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 534131068}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 534131071}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &534131067 stripped
 GameObject:
@@ -9179,6 +9370,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &534131070 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 534131066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &534131071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534131067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 534131070}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1001 &536614699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9257,6 +9475,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 536614701}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 536614704}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &536614700 stripped
 GameObject:
@@ -9420,6 +9641,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &536614703 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 536614699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &536614704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536614700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 536614703}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &537941831
 GameObject:
   m_ObjectHideFlags: 0
@@ -9943,6 +10191,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 554491706}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 554491709}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &554491705 stripped
 GameObject:
@@ -10106,6 +10357,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &554491708 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 554491704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &554491709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554491705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 554491708}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &555723698
 GameObject:
   m_ObjectHideFlags: 0
@@ -10996,6 +11274,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6873152748858979327, guid: 8846287c59f242446b6dfcecbf4d22fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 630827907}
+    - targetCorrespondingSourceObject: {fileID: 6873152748858979327, guid: 8846287c59f242446b6dfcecbf4d22fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 630827908}
   m_SourcePrefab: {fileID: 100100000, guid: 8846287c59f242446b6dfcecbf4d22fb, type: 3}
 --- !u!1 &630827898 stripped
 GameObject:
@@ -11024,6 +11305,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5040585093520927995, guid: 3e48aecbb6fea5c4d8190f4b26e30ea2, type: 3}
+--- !u!23 &630827900 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4472951796816208027, guid: 8846287c59f242446b6dfcecbf4d22fb, type: 3}
+  m_PrefabInstance: {fileID: 630827897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &630827903
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11032,7 +11318,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630827898}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -11181,6 +11467,28 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &630827908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630827898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 630827900}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &631248529
 GameObject:
   m_ObjectHideFlags: 0
@@ -11846,6 +12154,7 @@ GameObject:
   - component: {fileID: 668549595}
   - component: {fileID: 668549594}
   - component: {fileID: 668549593}
+  - component: {fileID: 668549599}
   m_Layer: 0
   m_Name: Plug_Red
   m_TagString: Untagged
@@ -12022,7 +12331,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668549591}
   serializedVersion: 5
-  m_Mass: 0.05
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -12119,6 +12428,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668549591}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &668549599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668549591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 668549596}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &676437579
 GameObject:
   m_ObjectHideFlags: 0
@@ -13664,7 +13995,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5736230740575811046, guid: cea4dd268a7f22e4d9cc0b6adc262371, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1891266355}
+    - targetCorrespondingSourceObject: {fileID: 5736230740575811046, guid: cea4dd268a7f22e4d9cc0b6adc262371, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1891266359}
   m_SourcePrefab: {fileID: 100100000, guid: cea4dd268a7f22e4d9cc0b6adc262371, type: 3}
+--- !u!23 &766808410 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6096698548921685043, guid: cea4dd268a7f22e4d9cc0b6adc262371, type: 3}
+  m_PrefabInstance: {fileID: 766808409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &780914621
 GameObject:
   m_ObjectHideFlags: 0
@@ -14413,7 +14752,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821651844}
   serializedVersion: 5
-  m_Mass: 0.05
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -14453,6 +14792,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15205738, y: 0.00824276, z: 0.13829082}
   m_Center: {x: -0.00007912889, y: 0.00412138, z: 0}
+--- !u!114 &821651852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821651844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 221445222}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &828565590
 GameObject:
   m_ObjectHideFlags: 0
@@ -15506,7 +15867,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 121478736786238944, guid: e708374af0de9e14da7554eeda144fb0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1934837145}
+    - targetCorrespondingSourceObject: {fileID: 121478736786238944, guid: e708374af0de9e14da7554eeda144fb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934837148}
   m_SourcePrefab: {fileID: 100100000, guid: e708374af0de9e14da7554eeda144fb0, type: 3}
+--- !u!23 &901071139 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1922870139788168245, guid: e708374af0de9e14da7554eeda144fb0, type: 3}
+  m_PrefabInstance: {fileID: 901071138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &905675515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1174544900274131193, guid: cdd44971fdc916841b79e2aaad313e60, type: 3}
@@ -15612,6 +15981,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8540882082041276108, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 926915465}
+    - targetCorrespondingSourceObject: {fileID: 8540882082041276108, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 926915466}
   m_SourcePrefab: {fileID: 100100000, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
 --- !u!1 &926915459 stripped
 GameObject:
@@ -15830,6 +16202,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemPrompt
   promptRoot: {fileID: 0}
   interactionDistance: 2.5
+--- !u!114 &926915466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926915459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 2131410142}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1001 &930539496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16759,6 +17153,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1877799407229196615, guid: d4f070f90698df3448e4322ef7f6830b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 974264676}
+    - targetCorrespondingSourceObject: {fileID: 1877799407229196615, guid: d4f070f90698df3448e4322ef7f6830b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 974264679}
   m_SourcePrefab: {fileID: 100100000, guid: d4f070f90698df3448e4322ef7f6830b, type: 3}
 --- !u!1 &974264675 stripped
 GameObject:
@@ -16903,7 +17300,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974264675}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -16922,6 +17319,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &974264678 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5551727453575730374, guid: d4f070f90698df3448e4322ef7f6830b, type: 3}
+  m_PrefabInstance: {fileID: 974264674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &974264679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974264675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 974264678}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &993307051
 GameObject:
   m_ObjectHideFlags: 0
@@ -19104,6 +19528,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1125648989}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125648992}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &1125648988 stripped
 GameObject:
@@ -19267,6 +19694,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &1125648991 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 1125648987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1125648992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125648988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1125648991}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1001 &1146674064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19335,11 +19789,50 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6682501288693266981, guid: de180c4147f75a84b86581e288f17370, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 51646150585943572, guid: de180c4147f75a84b86581e288f17370, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1146674067}
   m_SourcePrefab: {fileID: 100100000, guid: de180c4147f75a84b86581e288f17370, type: 3}
+--- !u!1 &1146674065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 51646150585943572, guid: de180c4147f75a84b86581e288f17370, type: 3}
+  m_PrefabInstance: {fileID: 1146674064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1146674066 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 59122813113363172, guid: de180c4147f75a84b86581e288f17370, type: 3}
+  m_PrefabInstance: {fileID: 1146674064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1146674067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146674065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1146674066}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1146771167
 GameObject:
   m_ObjectHideFlags: 0
@@ -19797,6 +20290,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5832841401571513545, guid: fe49397ea165e0f4b9fa04613575021a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1157991180}
+    - targetCorrespondingSourceObject: {fileID: 5832841401571513545, guid: fe49397ea165e0f4b9fa04613575021a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1157991183}
   m_SourcePrefab: {fileID: 100100000, guid: fe49397ea165e0f4b9fa04613575021a, type: 3}
 --- !u!1 &1157991177 stripped
 GameObject:
@@ -19952,6 +20448,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyOutlineShell
   outlineMaterial: {fileID: 2100000, guid: a9dcdbc3656b2ac4295a41bffb5a57e0, type: 2}
   keepAlphaMask: 0
+--- !u!23 &1157991181 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5022963478232143636, guid: fe49397ea165e0f4b9fa04613575021a, type: 3}
+  m_PrefabInstance: {fileID: 1157991176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1157991182
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19960,7 +20461,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157991177}
   serializedVersion: 5
-  m_Mass: 0.35
+  m_Mass: 1.2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -19979,6 +20480,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1157991183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157991177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1157991181}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1160918508
 GameObject:
   m_ObjectHideFlags: 0
@@ -20225,7 +20748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  targetSceneName: 
+  targetSceneName: hallway
   isUnlocked: 0
   requiresPuzzleCompletion: 1
   roomId: 
@@ -22902,6 +23425,7 @@ GameObject:
   - component: {fileID: 1390246019}
   - component: {fileID: 1390246018}
   - component: {fileID: 1390246017}
+  - component: {fileID: 1390246023}
   m_Layer: 0
   m_Name: Plug_Blue
   m_TagString: Untagged
@@ -23078,7 +23602,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390246015}
   serializedVersion: 5
-  m_Mass: 0.05
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -23175,6 +23699,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390246015}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1390246023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390246015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1390246020}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1393014165
 GameObject:
   m_ObjectHideFlags: 0
@@ -24544,6 +25090,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9108558609450279677, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1470072959}
+    - targetCorrespondingSourceObject: {fileID: 9108558609450279677, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1753440753}
   m_SourcePrefab: {fileID: 100100000, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
 --- !u!1 &1470072953 stripped
 GameObject:
@@ -24688,7 +25237,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470072953}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -26214,6 +26763,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5795900583283186902, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1545959138}
+    - targetCorrespondingSourceObject: {fileID: 5795900583283186902, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1545959141}
   m_SourcePrefab: {fileID: 100100000, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
 --- !u!1 &1545959137 stripped
 GameObject:
@@ -26358,7 +26910,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545959137}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -26377,6 +26929,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &1545959140 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3947140497647586963, guid: 4ab1f5e96e3735b4688e91c0ba5314b9, type: 3}
+  m_PrefabInstance: {fileID: 1545959136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1545959141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545959137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1545959140}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1551102569
 GameObject:
   m_ObjectHideFlags: 0
@@ -27023,6 +27602,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1580654236}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1580654239}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &1580654235 stripped
 GameObject:
@@ -27186,6 +27768,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &1580654238 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 1580654234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1580654239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580654235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1580654238}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1001 &1602080580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28019,6 +28628,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8427787681391800680, guid: d38c1075797543a4d9f7672036c47dc7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1685831629}
+    - targetCorrespondingSourceObject: {fileID: 8427787681391800680, guid: d38c1075797543a4d9f7672036c47dc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1685831632}
   m_SourcePrefab: {fileID: 100100000, guid: d38c1075797543a4d9f7672036c47dc7, type: 3}
 --- !u!1 &1685831628 stripped
 GameObject:
@@ -28182,6 +28794,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &1685831631 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7178933638230075719, guid: d38c1075797543a4d9f7672036c47dc7, type: 3}
+  m_PrefabInstance: {fileID: 1685831627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1685831632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685831628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1685831631}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1696406106
 GameObject:
   m_ObjectHideFlags: 0
@@ -29120,6 +29759,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.44, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1753440752 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7307342990936343336, guid: 66593823cd17b4d4ab2ff2ae726e4c5f, type: 3}
+  m_PrefabInstance: {fileID: 1470072952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1753440753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470072953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1753440752}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1761441480
 GameObject:
   m_ObjectHideFlags: 0
@@ -30619,7 +31285,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891266351}
   serializedVersion: 5
-  m_Mass: 0.05
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -30659,6 +31325,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15205738, y: 0.00824276, z: 0.13829082}
   m_Center: {x: -0.00007912889, y: 0.00412138, z: 0}
+--- !u!114 &1891266359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891266351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 766808410}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1893180028
 GameObject:
   m_ObjectHideFlags: 0
@@ -31658,7 +32346,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934837140}
   serializedVersion: 5
-  m_Mass: 0.05
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -31698,6 +32386,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15205738, y: 0.00824276, z: 0.13829082}
   m_Center: {x: -0.00007912889, y: 0.00412138, z: 0}
+--- !u!114 &1934837148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934837140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 901071139}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &1937610499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1174544900274131193, guid: cdd44971fdc916841b79e2aaad313e60, type: 3}
@@ -33087,6 +33797,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8540882082041276108, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1987441629}
+    - targetCorrespondingSourceObject: {fileID: 8540882082041276108, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1987441630}
   m_SourcePrefab: {fileID: 100100000, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
 --- !u!1 &1987441622 stripped
 GameObject:
@@ -33255,6 +33968,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &1987441626 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1652979411767452830, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+  m_PrefabInstance: {fileID: 1987441621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1987441627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33305,6 +34023,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemPrompt
   promptRoot: {fileID: 0}
   interactionDistance: 2.5
+--- !u!114 &1987441630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987441622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1987441626}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1001 &1988354766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33595,6 +34335,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2013064726}
+    - targetCorrespondingSourceObject: {fileID: 6226484431930665272, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2013064729}
   m_SourcePrefab: {fileID: 100100000, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
 --- !u!1 &2013064725 stripped
 GameObject:
@@ -33758,6 +34501,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &2013064728 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1376269140695454492, guid: 545c34d79a9a40a47b23a32b4fbd8635, type: 3}
+  m_PrefabInstance: {fileID: 2013064724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2013064729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013064725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 2013064728}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &2014269652
 GameObject:
   m_ObjectHideFlags: 0
@@ -34676,6 +35446,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2051267394739713402, guid: 4bd6baeec01a8704ca75632ad93dbffe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2050846207}
+    - targetCorrespondingSourceObject: {fileID: 2051267394739713402, guid: 4bd6baeec01a8704ca75632ad93dbffe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2050846210}
   m_SourcePrefab: {fileID: 100100000, guid: 4bd6baeec01a8704ca75632ad93dbffe, type: 3}
 --- !u!1 &2050846206 stripped
 GameObject:
@@ -34820,7 +35593,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050846206}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -34839,6 +35612,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &2050846209 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7415419099948216302, guid: 4bd6baeec01a8704ca75632ad93dbffe, type: 3}
+  m_PrefabInstance: {fileID: 2050846205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2050846210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050846206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 2050846209}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &2056273686
 GameObject:
   m_ObjectHideFlags: 0
@@ -35427,6 +36227,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3157291729206849587, guid: 025bf8a5482c6ff408b54779557bd29a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2082776979}
+    - targetCorrespondingSourceObject: {fileID: 3157291729206849587, guid: 025bf8a5482c6ff408b54779557bd29a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2082776982}
   m_SourcePrefab: {fileID: 100100000, guid: 025bf8a5482c6ff408b54779557bd29a, type: 3}
 --- !u!1 &2082776976 stripped
 GameObject:
@@ -35582,6 +36385,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyOutlineShell
   outlineMaterial: {fileID: 2100000, guid: a9dcdbc3656b2ac4295a41bffb5a57e0, type: 2}
   keepAlphaMask: 0
+--- !u!23 &2082776980 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1700677319239412406, guid: 025bf8a5482c6ff408b54779557bd29a, type: 3}
+  m_PrefabInstance: {fileID: 2082776975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &2082776981
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35590,7 +36398,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082776976}
   serializedVersion: 5
-  m_Mass: 0.6
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -35609,6 +36417,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2082776982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082776976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 2082776980}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &2087583667
 GameObject:
   m_ObjectHideFlags: 0
@@ -35728,10 +36558,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 339003252380639639, guid: bc0c43adb925d414f8d2ea00d5bb3a41, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2087947384}
+    - targetCorrespondingSourceObject: {fileID: 339003252380639639, guid: bc0c43adb925d414f8d2ea00d5bb3a41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2087947385}
   m_SourcePrefab: {fileID: 100100000, guid: bc0c43adb925d414f8d2ea00d5bb3a41, type: 3}
 --- !u!4 &2087947379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7350702970075179117, guid: bc0c43adb925d414f8d2ea00d5bb3a41, type: 3}
+  m_PrefabInstance: {fileID: 2087947378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2087947380 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4337100132818456700, guid: bc0c43adb925d414f8d2ea00d5bb3a41, type: 3}
   m_PrefabInstance: {fileID: 2087947378}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &2087947383
@@ -35742,7 +36580,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223016627}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 4
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -35891,6 +36729,28 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &2087947385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223016627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 2087947380}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1 &2089986938
 GameObject:
   m_ObjectHideFlags: 0
@@ -35906,6 +36766,7 @@ GameObject:
   - component: {fileID: 2089986942}
   - component: {fileID: 2089986941}
   - component: {fileID: 2089986940}
+  - component: {fileID: 2089986946}
   m_Layer: 0
   m_Name: Plug_Yellow
   m_TagString: Untagged
@@ -36082,7 +36943,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089986938}
   serializedVersion: 5
-  m_Mass: 0.05
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -36179,6 +37040,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089986938}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2089986946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089986938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 0
+  itemType: 0
+  customPromptText: 
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 2089986943}
+  customMaterialOverride: {fileID: 0}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
 --- !u!1001 &2095924804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36847,6 +37730,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129951066}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2131410142 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1652979411767452830, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+  m_PrefabInstance: {fileID: 926915458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2144505806
 GameObject:
   m_ObjectHideFlags: 0
