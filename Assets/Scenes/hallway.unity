@@ -1885,7 +1885,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 2
-  m_Color: {r: 1, g: 0.8814068, b: 0.39308167, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.016931176, a: 1}
   m_Intensity: 1
   m_Range: 15
   m_SpotAngle: 30
@@ -1948,12 +1948,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651123847}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.071, y: 3.74, z: -0.02}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.07313967, y: 2.60317, z: 0.88683003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 776431352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &698004169
 PrefabInstance:
@@ -2120,6 +2120,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 698004170}
+  - {fileID: 651123850}
   m_Father: {fileID: 1827356902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &776431353
@@ -4448,6 +4449,5 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 832575519}
   - {fileID: 1827356902}
-  - {fileID: 651123850}
   - {fileID: 1170028101}
   - {fileID: 829186968}
