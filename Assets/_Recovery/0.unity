@@ -264,11 +264,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24849428}
   m_CullTransparentMesh: 1
---- !u!1 &28611610 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8094196708872338360, guid: 3a035f90248079f4db6675e96a1b557b, type: 3}
-  m_PrefabInstance: {fileID: 1929062666}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &34537426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -534,6 +529,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1841370368}
   m_SourcePrefab: {fileID: 100100000, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+--- !u!1 &79597396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8094196708872338360, guid: 3a035f90248079f4db6675e96a1b557b, type: 3}
+  m_PrefabInstance: {fileID: 1929062666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &100230961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,6 +3308,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &360048752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5018,7 +5028,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564148353}
   serializedVersion: 5
-  m_Mass: 10
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5085,6 +5095,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &572455451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6462,7 +6482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ControllerCanvasToggle
   canvasToToggle: {fileID: 137180317}
   controllerHand: 4
-  button: 2
+  button: 1
 --- !u!1 &664721164
 GameObject:
   m_ObjectHideFlags: 0
@@ -7188,6 +7208,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &757103723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7486,6 +7516,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &794124580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8246,6 +8286,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &907620495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8868,6 +8918,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &960581192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9193,6 +9253,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &961288039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9511,7 +9581,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962264023}
   serializedVersion: 5
-  m_Mass: 2
+  m_Mass: 3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -10356,6 +10426,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b65227cc46be184cb3f9c677a641084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
+  requiredKeyId: 
+  countsTowardEscape: 1
+  reusable: 0
+  lockKeyInPlace: 1
+  stateChanges: []
+  onUnlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  onWrongKey:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1063982460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1420554326316580586, guid: 961f23c1b5d3a8c45bda50cd57d652d7, type: 3}
@@ -11189,6 +11270,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &1177394412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11327,7 +11418,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177394409}
   serializedVersion: 5
-  m_Mass: 0.75
+  m_Mass: 0.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -14117,6 +14208,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &1410354414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14255,7 +14356,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410354411}
   serializedVersion: 5
-  m_Mass: 0.75
+  m_Mass: 0.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -14772,6 +14873,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e3f8aedf462af43aa902c28112cece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashlightPower
+  flashlightLight: {fileID: 0}
+  blacklight: {fileID: 0}
+  bulbRenderer: {fileID: 0}
+  bulbOnEmission:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
+  powerOnSound: {fileID: 0}
+  powerOffSound: {fileID: 0}
 --- !u!1 &1447662668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5423568578692435371, guid: ac4bf23be814be543840c4634b4c7fbc, type: 3}
@@ -15659,6 +15770,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &1533578243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16118,7 +16239,7 @@ MonoBehaviour:
   interactionDistance: 2
   holdDuration: 1.5
   keyboardKey: 19
-  controllerHand: 4
+  controllerHand: 5
   controllerButton: 1
   buttonLabel: Right primary (Quest A) / E
 --- !u!1001 &1588669724
@@ -17741,7 +17862,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717352314}
   serializedVersion: 5
-  m_Mass: 5
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -19298,6 +19419,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &1862564066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19477,6 +19608,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &1864408345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19811,7 +19952,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28611610}
+  m_GameObject: {fileID: 79597396}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
@@ -20576,6 +20717,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &1986837675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20714,7 +20865,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813643279}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -21575,6 +21726,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &2119860803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21863,6 +22024,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
+  isKey: 1
+  keyId: 
+  glowOnHover: 1
+  glowColor:
+    r: 1
+    g: 0.85
+    b: 0.2
+    a: 1
+  glowIntensity: 1.5
+  respawnBelowY: -5
 --- !u!114 &2139503214
 MonoBehaviour:
   m_ObjectHideFlags: 0
