@@ -7414,7 +7414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4288979228662311333, guid: cdf3ff91184ff3f419f8ae807a618859, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -2.751
       objectReference: {fileID: 0}
     - target: {fileID: 4288979228662311333, guid: cdf3ff91184ff3f419f8ae807a618859, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24053,6 +24053,7 @@ GameObject:
   - component: {fileID: 2146856727}
   - component: {fileID: 2146856726}
   - component: {fileID: 2146856725}
+  - component: {fileID: 2146856728}
   m_Layer: 0
   m_Name: airlockDoor
   m_TagString: Untagged
@@ -24153,6 +24154,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146856723}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2146856728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146856723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  targetSceneName: hallway
+  isUnlocked: 1
+  requiresPuzzleCompletion: 0
+  roomId: 
+  interactionPoint: {fileID: 2146856724}
+  promptRoot: {fileID: 0}
+  promptText: {fileID: 0}
+  showLockedPrompt: 1
+  interactionDistance: 2
+  holdDuration: 1.5
+  keyboardKey: 19
+  controllerHand: 4
+  controllerButton: 1
+  buttonLabel: Y
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
