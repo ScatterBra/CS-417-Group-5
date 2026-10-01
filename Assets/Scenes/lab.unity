@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  targetSceneName: 
+  targetSceneName: hallway
   isUnlocked: 0
   requiresPuzzleCompletion: 1
   roomId: 
@@ -20041,6 +20041,8 @@ MonoBehaviour:
   doorPanel: {fileID: 675428224}
   doorOpenHeight: 3
   sceneLoader: {fileID: 63200981}
+  doorStatusLight: {fileID: 267038045}
+  exitLabel: {fileID: 1372593312}
   roomId: 
 --- !u!1001 &2017139238
 PrefabInstance:
