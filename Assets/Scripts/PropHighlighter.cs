@@ -136,8 +136,8 @@ public class PropHighlighter : MonoBehaviour
         outline.effectColor = Color.black;
         outline.effectDistance = new Vector2(1, -1);
 
-        if (itemType == PromptType.Grab) uiText.text = "Hold Grip to Grab";
-        else if (itemType == PromptType.Interact) uiText.text = "Press Secondary to Interact";
+        if (itemType == PromptType.Grab) uiText.text = "Hold Trigger to Grab";
+        else if (itemType == PromptType.Interact) uiText.text = "Press B to Interact";
         else uiText.text = customPromptText;
 
         promptRoot.SetActive(false);

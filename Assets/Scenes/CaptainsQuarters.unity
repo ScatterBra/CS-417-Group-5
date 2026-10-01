@@ -850,7 +850,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hold Right Secondary Button to Exit
+  m_Text: Hold Y to Exit
 --- !u!222 &129216643
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1162,7 +1162,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1128958180616080711, guid: 9ed58be355ba55a4b8842b4b38f86bf8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1922916357}
+    - targetCorrespondingSourceObject: {fileID: 1128958180616080711, guid: 9ed58be355ba55a4b8842b4b38f86bf8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1922916356}
+    - targetCorrespondingSourceObject: {fileID: 1128958180616080711, guid: 9ed58be355ba55a4b8842b4b38f86bf8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1922916358}
   m_SourcePrefab: {fileID: 100100000, guid: 9ed58be355ba55a4b8842b4b38f86bf8, type: 3}
 --- !u!1001 &196470731
 PrefabInstance:
@@ -2331,7 +2340,7 @@ GameObject:
   - component: {fileID: 404332729}
   - component: {fileID: 404332728}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ExitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2408,17 +2417,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404332727}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.9675962}
+  m_LocalRotation: {x: 0, y: 0.70134485, z: 0, w: 0.7128222}
+  m_LocalPosition: {x: 0, y: 0, z: -0.98539484}
   m_LocalScale: {x: 0.00050000014, y: 0.0005, z: 0.00050000014}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 129216641}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 89.07, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.1431403, y: 2587.6062}
+  m_AnchoredPosition: {x: 0.786, y: 1.0690916}
   m_SizeDelta: {x: 2388.5, y: 1255.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &420832704
@@ -5084,6 +5093,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8851110434176100659, guid: 61270eb91491e7b43b9378305a351fc3, type: 3}
   m_PrefabInstance: {fileID: 172215229569131687}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1244532586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128958180616080711, guid: 9ed58be355ba55a4b8842b4b38f86bf8, type: 3}
+  m_PrefabInstance: {fileID: 171864044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1245699018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3829414835904882574, guid: 44a4330e9b4067d4a8e64eccdb1cb9fe, type: 3}
@@ -7738,11 +7752,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  targetSceneName: SampleScene
+  targetSceneName: hallway
   isUnlocked: 1
   requiresPuzzleCompletion: 1
   roomId: BossBedroom
-  interactionPoint: {fileID: 0}
+  interactionPoint: {fileID: 404332731}
   promptRoot: {fileID: 404332727}
   promptText: {fileID: 129216642}
   showLockedPrompt: 1
@@ -7751,7 +7765,7 @@ MonoBehaviour:
   keyboardKey: 19
   controllerHand: 5
   controllerButton: 1
-  buttonLabel: Y
+  buttonLabel: B
 --- !u!4 &1733614514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1481696266138082823, guid: 3bb0e4c9dbebf57439eb2e4e8d96321f, type: 3}
@@ -8883,6 +8897,120 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1777874661667001745, guid: 9ed58be355ba55a4b8842b4b38f86bf8, type: 3}
   m_PrefabInstance: {fileID: 171864044}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1922916354 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1285024751433081925, guid: 9ed58be355ba55a4b8842b4b38f86bf8, type: 3}
+  m_PrefabInstance: {fileID: 171864044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1922916356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244532586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e682ad09fede4489d7753861f2445c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropHighlighter
+  showHoverPrompt: 1
+  itemType: 2
+  customPromptText: Press B to Reset Room
+  promptOffset: {x: 0, y: 0.25, z: 0}
+  meshRenderer: {fileID: 1922916354}
+  customMaterialOverride: {fileID: 2100000, guid: ade86b8a35271bc4881d441ff614ff14, type: 2}
+  maxHighlightDistance: 10
+  minHighlightDistance: 0.1
+  minFilterStrength: 0.03
+  maxFilterStrength: 0.33
+--- !u!114 &1922916357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244532586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
+--- !u!114 &1922916358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244532586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59fd2d595c99064a976c2dca65ccee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  resetButtonAction: {fileID: 7372899944165234313, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1925795089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6840832029642844408, guid: f5f7be87eb8af0e4ab84fe8b663ace63, type: 3}
@@ -10934,6 +11062,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773853127120419366, guid: 3107c3a60b272494a83ebb6924769323, type: 3}
       propertyPath: itemType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5773853127120419366, guid: 3107c3a60b272494a83ebb6924769323, type: 3}
+      propertyPath: showHoverPrompt
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5773853127120419366, guid: 3107c3a60b272494a83ebb6924769323, type: 3}
