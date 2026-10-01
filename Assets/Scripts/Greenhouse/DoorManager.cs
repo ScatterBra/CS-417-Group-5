@@ -41,6 +41,7 @@ public class DoorManager : MonoBehaviour
     private void UnlockDoor()
     {
         Debug.Log("UNLOCKED UNLOCKED UNLOCKED");
+        GameProgress.CompleteRoom(RoomId);
         if (sceneLoader != null)
         {
             sceneLoader.SetUnlocked(true);

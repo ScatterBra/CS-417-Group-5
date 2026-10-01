@@ -21,7 +21,10 @@ public sealed class SyringeControl : MonoBehaviour
     public bool IsLoaded { get; private set; }
     public bool IsUsed { get; private set; }
 
+
+
     XRGrabInteractable grab;
+
 
     void Awake()
     {
