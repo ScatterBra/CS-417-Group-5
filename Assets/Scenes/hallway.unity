@@ -1998,9 +1998,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   targetSceneName: Bathroom
-  isUnlocked: 0
+  isUnlocked: 1
   requiresPuzzleCompletion: 1
-  roomId: 
+  roomId: greenhouse
   interactionPoint: {fileID: 786702614}
   promptRoot: {fileID: 1206004470}
   promptText: {fileID: 802957206}
@@ -3200,7 +3200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  targetSceneName: controllroom
+  targetSceneName: controlroom
   isUnlocked: 1
   requiresPuzzleCompletion: 0
   roomId: 

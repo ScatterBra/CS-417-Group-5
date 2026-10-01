@@ -7734,7 +7734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  targetSceneName: SampleScene
+  targetSceneName: hallway
   isUnlocked: 1
   requiresPuzzleCompletion: 1
   roomId: BossBedroom
