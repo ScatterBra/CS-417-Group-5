@@ -4109,6 +4109,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409067427}
   m_Mesh: {fileID: 3369316746193770658, guid: 10cd91af882d2554cb99a639070e5386, type: 3}
+--- !u!1 &441647251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441647253}
+  - component: {fileID: 441647252}
+  m_Layer: 0
+  m_Name: SyringeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &441647252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441647251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eeef89c5d2949c488f5969c3d574c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SyringeSpawner
+  syringe: {fileID: 897807237}
+  requiredRoomId: greenhouse
+--- !u!4 &441647253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441647251}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.15892, y: -0, z: -11.16811}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &443472349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7368,7 +7414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4288979228662311333, guid: cdf3ff91184ff3f419f8ae807a618859, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -2.751
       objectReference: {fileID: 0}
     - target: {fileID: 4288979228662311333, guid: cdf3ff91184ff3f419f8ae807a618859, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7962,7 +8008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1273085680711717523, guid: bf5ec2527fc81ee4893ec489cef8a881, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4070419
+      value: -2.221
       objectReference: {fileID: 0}
     - target: {fileID: 1273085680711717523, guid: bf5ec2527fc81ee4893ec489cef8a881, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7970,7 +8016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1273085680711717523, guid: bf5ec2527fc81ee4893ec489cef8a881, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.227958
+      value: 2.091
       objectReference: {fileID: 0}
     - target: {fileID: 1273085680711717523, guid: bf5ec2527fc81ee4893ec489cef8a881, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23979,7 +24025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99c66b15e590fc47b71fa906cf9e346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToiletPortalController
-  arrow: {fileID: 0}
   portal: {fileID: 1923321300}
 --- !u!4 &2118155237
 Transform:
@@ -24008,6 +24053,7 @@ GameObject:
   - component: {fileID: 2146856727}
   - component: {fileID: 2146856726}
   - component: {fileID: 2146856725}
+  - component: {fileID: 2146856728}
   m_Layer: 0
   m_Name: airlockDoor
   m_TagString: Untagged
@@ -24108,12 +24154,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146856723}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2146856728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146856723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  targetSceneName: hallway
+  isUnlocked: 1
+  requiresPuzzleCompletion: 0
+  roomId: 
+  interactionPoint: {fileID: 2146856724}
+  promptRoot: {fileID: 0}
+  promptText: {fileID: 0}
+  showLockedPrompt: 1
+  interactionDistance: 2
+  holdDuration: 1.5
+  keyboardKey: 19
+  controllerHand: 4
+  controllerButton: 1
+  buttonLabel: Y
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 536392353}
   - {fileID: 2118155237}
+  - {fileID: 441647253}
   - {fileID: 847051772}
   - {fileID: 1937203548}
   - {fileID: 1505940909}
