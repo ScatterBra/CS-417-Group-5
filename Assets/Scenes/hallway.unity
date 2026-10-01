@@ -370,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 257016364}
   m_Layer: 0
-  m_Name: Names
+  m_Name: Names Plates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,7 +384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257016363}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.64845, y: 0.23925, z: 2.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -395,7 +395,7 @@ Transform:
   - {fileID: 1737455296}
   - {fileID: 602614768}
   - {fileID: 239117610}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1827356902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &262540357
 PrefabInstance:
@@ -4011,6 +4011,7 @@ Transform:
   - {fileID: 1295638522}
   - {fileID: 933650707}
   - {fileID: 813483920}
+  - {fileID: 257016364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1839999202
@@ -4204,4 +4205,3 @@ SceneRoots:
   - {fileID: 651123850}
   - {fileID: 1170028101}
   - {fileID: 829186968}
-  - {fileID: 257016364}
