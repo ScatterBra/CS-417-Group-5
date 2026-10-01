@@ -35,6 +35,7 @@ public sealed class ShrinkZone : MonoBehaviour
     [Tooltip("Which side of this doorway is the small room, in the collider's local axes.")]
     public Vector3 smallSide = Vector3.left;
 
+
     [Min(1f)]
     [Tooltip("XRI already slows movement down with the player's size, so a small player covers the " +
              "same body-lengths per second - and a room that now looks ten times bigger takes ten " +
@@ -83,6 +84,8 @@ public sealed class ShrinkZone : MonoBehaviour
     private Coroutine transition;
     private PlayerSnapshot snapshot;
 
+    public bool manualOnly; // only for bathroom,,,
+
     private void Awake()
     {
         doorway = GetComponent<BoxCollider>();
@@ -105,7 +108,7 @@ public sealed class ShrinkZone : MonoBehaviour
         }
 
         // Starting inside the small room (e.g. while testing) means starting small.
-        if (SideOf(PlayerFeet()) > 0 && !stayFullSize)
+        if (!manualOnly && SideOf(PlayerFeet()) > 0 && !stayFullSize)
         {
             Shrink(true);
         }
@@ -113,6 +116,7 @@ public sealed class ShrinkZone : MonoBehaviour
 
     private void Update()
     {
+        if (manualOnly) return; //bathroom
         if (origin == null && !FindPlayer())
         {
             return;
