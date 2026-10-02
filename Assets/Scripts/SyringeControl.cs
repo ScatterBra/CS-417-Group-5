@@ -12,19 +12,19 @@ public sealed class SyringeControl : MonoBehaviour
 {
     public ShrinkZone shrinkZone;
 
-    public GameObject promptRoot;// prompt to use syringe
+    public GameObject promptRoot;
+
+
     public bool requireHeld = true;
 
+   
     public UnityEvent onLoaded = new UnityEvent();
     public UnityEvent onUsed = new UnityEvent();
 
     public bool IsLoaded { get; private set; }
     public bool IsUsed { get; private set; }
 
-
-
     XRGrabInteractable grab;
-
 
     void Awake()
     {
@@ -32,7 +32,6 @@ public sealed class SyringeControl : MonoBehaviour
         if (promptRoot) promptRoot.SetActive(false);
     }
 
-    // on unlocked
     public void LoadVial()
     {
         if (IsLoaded) return;
@@ -54,8 +53,9 @@ public sealed class SyringeControl : MonoBehaviour
     {
         IsUsed = true;
         if (promptRoot) promptRoot.SetActive(false);
-
+      
         if (shrinkZone) shrinkZone.Shrink(false);
+        else Debug.LogWarning("[SyringeControl] No ShrinkZone assigned.", this);
 
         onUsed.Invoke();
     }
@@ -63,8 +63,8 @@ public sealed class SyringeControl : MonoBehaviour
     static bool UsePressed()
     {
 #if ENABLE_INPUT_SYSTEM
+        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame) return true;
 
-        // x button
         var left = XRController.leftHand;
         var x = left?.TryGetChildControl<UnityEngine.InputSystem.Controls.ButtonControl>("primaryButton");
         if (x != null && x.wasPressedThisFrame) return true;
