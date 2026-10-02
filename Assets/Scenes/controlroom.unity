@@ -264,6 +264,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24849428}
   m_CullTransparentMesh: 1
+--- !u!1 &28611610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8094196708872338360, guid: 3a035f90248079f4db6675e96a1b557b, type: 3}
+  m_PrefabInstance: {fileID: 1929062666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &34537426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -332,9 +337,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7716645336282141713, guid: 550560ab869d5bf47923983d26dfc906, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1450328056}
-    - targetCorrespondingSourceObject: {fileID: 7716645336282141713, guid: 550560ab869d5bf47923983d26dfc906, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1450328055}
   m_SourcePrefab: {fileID: 100100000, guid: 550560ab869d5bf47923983d26dfc906, type: 3}
 --- !u!1 &53656941 stripped
 GameObject:
@@ -513,7 +515,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowCard (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5141319432033596104, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+    - {fileID: 2623965613948681604, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -530,11 +534,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1841370368}
   m_SourcePrefab: {fileID: 100100000, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
---- !u!1 &79597396 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8094196708872338360, guid: 3a035f90248079f4db6675e96a1b557b, type: 3}
-  m_PrefabInstance: {fileID: 1929062666}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &100230961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1013,7 @@ MonoBehaviour:
   targetLightColor: {r: 0, g: 1, b: 0, a: 1}
   targetLightIntensity: 2
   fadesOut: 0
+  sound: {fileID: 0}
 --- !u!23 &144387900
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1387,14 +1387,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 161620857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c2b1a58bd3f8e48a92b99aca0b7952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
   requiredKeyId: BC1
   countsTowardEscape: 0
   reusable: 0
   lockKeyInPlace: 1
-  stateChanges: []
+  stateChanges:
+  - {fileID: 1954195245}
   onUnlocked:
     m_PersistentCalls:
       m_Calls:
@@ -1700,7 +1701,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowCard
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5141319432033596104, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+    - {fileID: 2623965613948681604, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1930,9 +1933,6 @@ PrefabInstance:
       addedObject: {fileID: 1991724767}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1991724766}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1991724765}
     - targetCorrespondingSourceObject: {fileID: -4705628584918533670, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
       insertIndex: -1
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 227069124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -2403,7 +2403,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 249397598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -2603,7 +2603,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.031650066, y: 0.061, z: -0.093}
-  m_LocalScale: {x: 0.44021, y: 0.44021, z: 0.44021}
+  m_LocalScale: {x: 0.56989586, y: 0.56989586, z: 0.56989586}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1013290830}
@@ -3043,7 +3043,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 324994503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -3308,12 +3308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: LT1
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &360048752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3634,6 +3628,7 @@ MonoBehaviour:
   targetLightColor: {r: 0, g: 1, b: 0, a: 1}
   targetLightIntensity: 2
   fadesOut: 0
+  sound: {fileID: 0}
 --- !u!23 &377724684
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4069,7 +4064,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowCard (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2623965613948681604, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
+    - {fileID: 5141319432033596104, guid: 266b86b5ac92ce34f994acba480f6ed1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4105,7 +4102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 409594012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -4754,11 +4751,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 492853600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c706e0217faa644fbdaf8d370cd1aa0, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e6cec531254734f8e16ff0ccee4522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InvisibleWriting
   hiddenContent: {fileID: 1347172714}
-  fadeSpeed: 4
+  fadeSpeed: 3
 --- !u!1001 &492855648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4874,7 +4871,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 564148353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 0
@@ -5021,7 +5018,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564148353}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5088,12 +5085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &572455451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5232,7 +5223,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572455448}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6002,6 +5993,7 @@ MonoBehaviour:
   targetLightColor: {r: 0, g: 1, b: 0, a: 1}
   targetLightIntensity: 2
   fadesOut: 0
+  sound: {fileID: 0}
 --- !u!23 &652663142
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6431,7 +6423,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 664479480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f45e0cb38e20b94087d1c6bbef92135, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d5d922d20a87c844bcd07939cefa818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   locksRequired: 3
@@ -6465,12 +6457,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 664479480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 367ae84af8498a14b9a5b854a92056fe, type: 3}
+  m_Script: {fileID: 11500000, guid: ddf96ed7f06b0fa4586a1576477ba997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControllerCanvasToggle
   canvasToToggle: {fileID: 137180317}
   controllerHand: 4
-  button: 1
+  button: 2
 --- !u!1 &664721164
 GameObject:
   m_ObjectHideFlags: 0
@@ -7196,12 +7188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: G1
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &757103723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7500,12 +7486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &794124580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7831,7 +7811,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 815836828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -8266,12 +8246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: KY1
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &907620495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8591,7 +8565,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 944556679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 0
@@ -8894,12 +8868,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &960581192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9225,12 +9193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &961288039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9402,7 +9364,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 962264023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 0
@@ -9549,7 +9511,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962264023}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9675,9 +9637,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2955202125812914871, guid: 09d568b77cd719f4bad8ae01a14d59ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1013290831}
-    - targetCorrespondingSourceObject: {fileID: 2955202125812914871, guid: 09d568b77cd719f4bad8ae01a14d59ab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1013290838}
   m_SourcePrefab: {fileID: 100100000, guid: 09d568b77cd719f4bad8ae01a14d59ab, type: 3}
 --- !u!1001 &983526541
 PrefabInstance:
@@ -9824,26 +9783,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 999779510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5dbb79121df964faec8cb523bc950c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1afbb11e313bbc246a28461353ba30cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorToggle
-  animator: {fileID: 0}
+  animator: {fileID: 999779515}
   mode: 0
   openName: Open
   closeName: Close
---- !u!114 &999779513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999779510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28bc5b60dc648242b10c7974ccbc897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XrWeaponActions
-  _visualEffect: {fileID: 100230964}
 --- !u!114 &999779514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9918,6 +9864,11 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
+--- !u!95 &999779515 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
+  m_PrefabInstance: {fileID: 1190742549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1006572846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10019,12 +9970,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1013290829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba34c6d4000094e4c9ccb5eeac7f82cf, type: 3}
+  m_Script: {fileID: 11500000, guid: e1b19c4694511834c9a433f7d9759e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagnifyingGlass
-  lensCamera: {fileID: 0}
-  lensDisplay: {fileID: 0}
-  zoomFOV: 20
+  lensCamera: {fileID: 1243681272}
+  lensDisplay: {fileID: 253696957}
+  zoomFOV: 15
   onlyRenderWhileHeld: 1
 --- !u!114 &1013290832
 MonoBehaviour:
@@ -10035,7 +9986,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1013290829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 0
@@ -10223,22 +10174,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3726873423174238959, guid: c8fa40be45fbc6246acb25b76057659b, type: 3}
---- !u!114 &1013290838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013290829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 712c13949c0c208489577036c3d9f760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagnifyingGlass
-  lensCamera: {fileID: 1243681272}
-  lensDisplay: {fileID: 253696957}
-  zoomFOV: 15.2
-  onlyRenderWhileHeld: 1
 --- !u!1 &1022987585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8307888659775541636, guid: 9ffd4edfa5582d9498e607317781e880, type: 3}
@@ -10421,17 +10356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b65227cc46be184cb3f9c677a641084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
-  requiredKeyId: 
-  countsTowardEscape: 1
-  reusable: 0
-  lockKeyInPlace: 1
-  stateChanges: []
-  onUnlocked:
-    m_PersistentCalls:
-      m_Calls: []
-  onWrongKey:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1063982460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1420554326316580586, guid: 961f23c1b5d3a8c45bda50cd57d652d7, type: 3}
@@ -10579,7 +10503,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1085831282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -10943,14 +10867,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1152751119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c2b1a58bd3f8e48a92b99aca0b7952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
   requiredKeyId: YC1
   countsTowardEscape: 0
   reusable: 0
   lockKeyInPlace: 1
-  stateChanges: []
+  stateChanges:
+  - {fileID: 1164929711}
   onUnlocked:
     m_PersistentCalls:
       m_Calls:
@@ -11081,6 +11006,7 @@ MonoBehaviour:
   targetLightColor: {r: 0, g: 1, b: 0, a: 1}
   targetLightIntensity: 2
   fadesOut: 0
+  sound: {fileID: 0}
 --- !u!23 &1164929712
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11263,12 +11189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1177394412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11407,7 +11327,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177394409}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.75
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -11445,11 +11365,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1187452143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
-  keyId: YC2
+  keyId: YC3
   glowOnHover: 1
   glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
   glowIntensity: 1.5
@@ -11767,9 +11687,6 @@ PrefabInstance:
       addedObject: {fileID: 999779514}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 999779513}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 999779512}
     - targetCorrespondingSourceObject: {fileID: -4705628584918533670, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
       insertIndex: -1
@@ -11778,6 +11695,89 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1137798547}
   m_SourcePrefab: {fileID: 100100000, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
+--- !u!1 &1199424452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1199424453}
+  - component: {fileID: 1199424455}
+  - component: {fileID: 1199424454}
+  m_Layer: 0
+  m_Name: InteractText (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1199424453
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199424452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1767405366}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -24, y: -16}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1199424454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199424452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 28
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Exit
+
+    [Hold Y]
+
+'
+--- !u!222 &1199424455
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199424452}
+  m_CullTransparentMesh: 1
 --- !u!1 &1210054298
 GameObject:
   m_ObjectHideFlags: 0
@@ -11891,13 +11891,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1210054298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c2b1a58bd3f8e48a92b99aca0b7952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
   requiredKeyId: 3
   countsTowardEscape: 1
   reusable: 0
-  lockKeyInPlace: 1
+  lockKeyInPlace: 0
   stateChanges:
   - {fileID: 377724683}
   onUnlocked:
@@ -12384,7 +12384,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -12869,7 +12869,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1313536818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -13083,11 +13083,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1324084977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c2b1a58bd3f8e48a92b99aca0b7952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
   requiredKeyId: RC1
-  countsTowardEscape: 1
+  countsTowardEscape: 0
   reusable: 0
   lockKeyInPlace: 1
   stateChanges:
@@ -13411,7 +13411,7 @@ MonoBehaviour:
     data
 
     These are hidden away and must be collected from the card locked secure
-    chest'
+    chests'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13904,8 +13904,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14200,12 +14200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1410354414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14344,7 +14338,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410354411}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.75
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -14475,18 +14469,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1439172894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c2b1a58bd3f8e48a92b99aca0b7952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
   requiredKeyId: B1
   countsTowardEscape: 0
-  reusable: 1
-  lockKeyInPlace: 0
+  reusable: 0
+  lockKeyInPlace: 1
   stateChanges: []
   onUnlocked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1441918978}
+      - m_Target: {fileID: 1441918977}
         m_TargetAssemblyTypeName: FlashlightPower, Assembly-CSharp
         m_MethodName: PowerOn
         m_Mode: 4
@@ -14823,7 +14817,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1441918960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17535aeee0a5acc4e8589867160744eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f71e80c80e86ff41bbf47d2bba0c471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlacklightProp
   beamOrigin: {fileID: 0}
@@ -14840,15 +14834,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1441918960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e0a516c00bd50fd44973a709f705aa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
+  flashlightLight: {fileID: 1441918969}
+  blacklight: {fileID: 1441918976}
+  bulbRenderer: {fileID: 0}
+  bulbOnEmission: {r: 1, g: 1, b: 1, a: 1}
+  powerOnSound: {fileID: 108318213}
+  powerOffSound: {fileID: 0}
 --- !u!114 &1441918978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14861,12 +14855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e3f8aedf462af43aa902c28112cece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashlightPower
-  flashlightLight: {fileID: 1441918969}
-  blacklight: {fileID: 1441918976}
-  bulbRenderer: {fileID: 0}
-  bulbOnEmission: {r: 1, g: 1, b: 1, a: 1}
-  powerOnSound: {fileID: 108318213}
-  powerOffSound: {fileID: 0}
 --- !u!1 &1447662668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5423568578692435371, guid: ac4bf23be814be543840c4634b4c7fbc, type: 3}
@@ -15012,7 +15000,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1448883266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c2b1a58bd3f8e48a92b99aca0b7952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
   requiredKeyId: 1
@@ -15036,7 +15024,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 144387903}
+      - m_Target: {fileID: 377724687}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
@@ -15073,24 +15061,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3409050546583245197, guid: 550560ab869d5bf47923983d26dfc906, type: 3}
   m_PrefabInstance: {fileID: 34537426}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1450328055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450328053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1450328056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15229,7 +15199,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450328053}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -15371,7 +15341,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1457163091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -15772,12 +15742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: KY2
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1533578243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16203,7 +16167,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5881162709833894144, guid: dc186893ec25ee143b1c69b39cb76839, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1767405366}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6545356434981000122, guid: dc186893ec25ee143b1c69b39cb76839, type: 3}
       insertIndex: -1
@@ -16226,18 +16193,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  targetSceneName: 
+  targetSceneName: hallway
   isUnlocked: 0
   requiresPuzzleCompletion: 0
   roomId: 
   interactionPoint: {fileID: 1929062667}
-  promptRoot: {fileID: 0}
-  promptText: {fileID: 0}
+  promptRoot: {fileID: 1767405365}
+  promptText: {fileID: 1199424454}
+  showLockedPrompt: 1
   interactionDistance: 2
   holdDuration: 1.5
   keyboardKey: 19
-  controllerHand: 5
-  controllerButton: 0
+  controllerHand: 4
+  controllerButton: 1
   buttonLabel: Right primary (Quest A) / E
 --- !u!1001 &1588669724
 PrefabInstance:
@@ -16327,7 +16295,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588669725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -16783,6 +16751,7 @@ MonoBehaviour:
   targetLightColor: {r: 0, g: 1, b: 0, a: 1}
   targetLightIntensity: 2
   fadesOut: 0
+  sound: {fileID: 0}
 --- !u!4 &1623970676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3855724178763031100, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
@@ -17330,7 +17299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709676420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed15a9972d2cf43b05868e8a9d8058, type: 3}
+  m_Script: {fileID: 11500000, guid: b8c2b1a58bd3f8e48a92b99aca0b7952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lock
   requiredKeyId: 2
@@ -17711,7 +17680,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1717352314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 0
@@ -17858,7 +17827,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717352314}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -17975,7 +17944,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721979705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -18209,7 +18178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1735045206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -18792,9 +18761,6 @@ PrefabInstance:
       addedObject: {fileID: 1752372018}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1752372017}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1752372020}
     - targetCorrespondingSourceObject: {fileID: -4705628584918533670, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
       insertIndex: -1
@@ -18808,19 +18774,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
   m_PrefabInstance: {fileID: 1752372015}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1752372017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752372016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28bc5b60dc648242b10c7974ccbc897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XrWeaponActions
-  _visualEffect: {fileID: 664721167}
 --- !u!114 &1752372018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18904,13 +18857,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752372016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5dbb79121df964faec8cb523bc950c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1afbb11e313bbc246a28461353ba30cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorToggle
-  animator: {fileID: 0}
+  animator: {fileID: 1752372021}
   mode: 0
   openName: Open
   closeName: Close
+--- !u!95 &1752372021 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
+  m_PrefabInstance: {fileID: 1752372015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1759607990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18997,6 +18955,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5492482151116012571, guid: d4b056a15a8fb8f4a89cb062762a19e1, type: 3}
   m_PrefabInstance: {fileID: 1759607990}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1767405365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767405366}
+  - component: {fileID: 1767405369}
+  - component: {fileID: 1767405368}
+  - component: {fileID: 1767405367}
+  m_Layer: 0
+  m_Name: InteractPrompt (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1767405366
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767405365}
+  m_LocalRotation: {x: -0.000000055509418, y: 1, z: -0.000000015279426, w: 0.0000012516974}
+  m_LocalPosition: {x: 0, y: 0, z: 0.032}
+  m_LocalScale: {x: 0.0019999999, y: 0.0019999999, z: 0.0019999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1199424453}
+  m_Father: {fileID: 1585365793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.08, y: 0.87}
+  m_SizeDelta: {x: 500, y: 110}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1767405367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767405365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.02, g: 0.04, b: 0.08, a: 0.9}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1767405368
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767405365}
+  m_CullTransparentMesh: 1
+--- !u!223 &1767405369
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767405365}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1813643279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3792697781153713321, guid: 6420e111359ec0549ac7f27cc5d7875f, type: 3}
@@ -19426,12 +19485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1862564066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19611,12 +19664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1864408345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19951,24 +19998,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79597396}
+  m_GameObject: {fileID: 28611610}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e15d313ec5b6fdf4eaa185996edb818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  targetSceneName: lab
+  targetSceneName: hallway
   isUnlocked: 0
   requiresPuzzleCompletion: 0
   roomId: 
   interactionPoint: {fileID: 0}
   promptRoot: {fileID: 0}
   promptText: {fileID: 0}
+  showLockedPrompt: 1
   interactionDistance: 2
   holdDuration: 1.5
   keyboardKey: 19
-  controllerHand: 5
-  controllerButton: 0
+  controllerHand: 4
+  controllerButton: 1
   buttonLabel: Right primary (Quest A) / E
 --- !u!1001 &1944072099
 PrefabInstance:
@@ -20119,6 +20167,7 @@ MonoBehaviour:
   targetLightColor: {r: 0, g: 1, b: 0, a: 1}
   targetLightIntensity: 2
   fadesOut: 0
+  sound: {fileID: 0}
 --- !u!23 &1954195246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20211,7 +20260,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1959255755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: e7457b95a4b37c745835d18c2421a242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
   isKey: 1
@@ -20714,12 +20763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &1986837675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20896,26 +20939,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991724763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5dbb79121df964faec8cb523bc950c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1afbb11e313bbc246a28461353ba30cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorToggle
-  animator: {fileID: 0}
+  animator: {fileID: 1991724768}
   mode: 0
   openName: Open
   closeName: Close
---- !u!114 &1991724766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991724763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28bc5b60dc648242b10c7974ccbc897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XrWeaponActions
-  _visualEffect: {fileID: 1618178111}
 --- !u!114 &1991724767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20990,6 +21020,11 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
+--- !u!95 &1991724768 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b022830ffdee6284d86c2ab95aedc36f, type: 3}
+  m_PrefabInstance: {fileID: 213146877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2003160645 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5009062746469270553, guid: 998383175bea1704fafb8d9a266f119d, type: 3}
@@ -21727,12 +21762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &2119860803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22021,12 +22050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d94b555b7df074883d575b882d4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbableProp
-  isKey: 0
-  keyId: 
-  glowOnHover: 1
-  glowColor: {r: 1, g: 0.85, b: 0.2, a: 1}
-  glowIntensity: 1.5
-  respawnBelowY: -5
 --- !u!114 &2139503214
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public sealed class LabEscapeRoom : MonoBehaviour
     [SerializeField] private Transform doorPanel;
     [SerializeField, Min(0.1f)] private float doorOpenHeight = 3f;
     [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private Renderer doorStatusLight;
+    [SerializeField] private GameObject exitLabel;
     [SerializeField, Tooltip("Unique room ID. Leave blank to use this scene's path.")]
     private string roomId;
     private string RoomId => string.IsNullOrWhiteSpace(roomId) ? gameObject.scene.path : roomId.Trim();
@@ -57,6 +59,7 @@ public sealed class LabEscapeRoom : MonoBehaviour
                 indicators[i].material.color = Color.green;
             }
             unlockedCount = unlocked.Length;
+            ShowCompletedExit();
             doorPanel.localPosition += Vector3.up * doorOpenHeight;
             progressText.text = "ESCAPE OPEN";
             progressText.color = Color.green;
@@ -78,8 +81,23 @@ public sealed class LabEscapeRoom : MonoBehaviour
         if (unlockedCount == sockets.Length)
         {
             GameProgress.CompleteRoom(RoomId);
+            ShowCompletedExit();
             StartCoroutine(OpenDoor());
         }
+    }
+
+    private void ShowCompletedExit()
+    {
+        if (doorStatusLight != null)
+        {
+            var properties = new MaterialPropertyBlock();
+            doorStatusLight.GetPropertyBlock(properties);
+            properties.SetColor("_BaseColor", Color.green);
+            properties.SetColor("_Color", Color.green);
+            properties.SetColor("_EmissionColor", Color.green);
+            doorStatusLight.SetPropertyBlock(properties);
+        }
+        if (exitLabel != null) exitLabel.SetActive(false);
     }
 
     private void UpdateProgress()

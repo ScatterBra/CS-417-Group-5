@@ -49,6 +49,10 @@ public sealed class EasedStateChange : MonoBehaviour
     [Tooltip("Fade the renderer's alpha to zero, then switch the object off. Needs a transparent material.")]
     public bool fadesOut;
 
+    [Header("Sound")]
+    [Tooltip("Played once as the change starts (after the delay). Use a 3D source so it comes from this object.")]
+    public AudioSource sound;
+
     private Renderer targetRenderer;
     private Material materialInstance;
     private Light targetLight;
@@ -141,6 +145,11 @@ public sealed class EasedStateChange : MonoBehaviour
         if (delay > 0f)
         {
             yield return new WaitForSeconds(delay);
+        }
+
+        if (sound != null)
+        {
+            sound.Play();
         }
 
         float elapsed = 0f;
